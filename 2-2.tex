@@ -1,0 +1,77 @@
+\section*{2/2}
+  \underline{Example}: Check pic circuit problem.png.\\
+  Each relay is independently conducting with probability $p$.\\
+  Then, $P(\text{ current flows from A to B})$?\\
+  Conditioned on 3 conditions, \{1 or 2 conduct\} $\bigcap$ \{4 or 5 conducts 
+  \}\\
+  $(1 - (1-p)^2)^2 $\\
+  3 non-conducting: \{ 1 and 4 conduct \} $\bigcup$ \{ 2 and 5 conducts\}\\
+  $1 - (1-p^2)^2$\\
+  $P(\{\text{1 and 4 conducts}\}^c) = 1 - P(\text{1 and 4 conducts}) = 1 -
+  p^2$\\
+  Answer: $p(2p - p^2)^2 + (1-p)(2p^2 - p^4)$\\\\
+  \subsection*{4 random variables}
+    A "random variable" is a number whose value is the result of a random 
+    experiment.\\\\
+  \underline{Example}: 
+  \begin{enumerate}
+    \item Toss a coin 10 times, $X$ = number of heads.
+    \item Choose a random point on $(0,1)$. $X$ = distance from origin
+    \item Choose a random person, $X$ = height of person
+  \end{enumerate}
+  Mathematically, $X$ is a real valued funciton on $S$, the space of outcomes.\\
+  \begin{definition}
+    Discrete random variables are those with only countably many values, $x_i$
+    with $i = 1, 2, \ldots$ and $p(x_i) = P(X = x_i)$ with $i = 1, 2, \ldots$ is
+    known as the probability mass function
+  \end{definition}
+  Properties:
+  \begin{enumerate}
+    \item $p(x_i) > 0$
+    \item $P(X \in A) = \sum_{x_i \in A} p(x_i)$
+    \item $\sum_{i = 1}^{\infty} p(x_i) = 1$
+  \end{enumerate}
+  \underline{Example}: $X =$ number of heads in 2 pair coin tosses.\\
+    $P(X = 0) = \frac{1}{4} = P(X = 2)$\\
+    $P(X = 1) = \frac{1}{2}$\\
+  \underline{Example}: An urn contains 20 balls, numbered $1, \ldots, 20$.
+    Pull out 5 balls at random.\\
+    $X = $ largest number among selected balls.\\
+    $P(X = i)$ where $i= 5, \ldots, 20$?\\
+  \begin{enumerate}
+    \item Sample space: $\binom{20}{5}$. Pick 5 balls of 20
+    \item $\binom{i -1}{4}$
+  \end{enumerate}
+    $P(\text{at least one number at least 15}) = P(X \ge 15) = \sum_{i = 15}
+    ^{20} P(X = i)$
+  \underline{Example}: An urn contains 11 balls. We have 3 white balls,
+    3 red balls, and 5 blue balls.\\
+    Take out 3 balls at random.\\
+    You win \$1 for each red ball you get and lose a \$1 for each white ball
+    you get.\\
+    $P(X = 0) = $\\
+    \begin{enumerate}
+      \item Sample Space: $\binom{11}{3}$ Pick three balls
+      \item Choose 2 red and 1 white (or vice versa for -1): $\binom{3}{2}
+        \binom{3}{1}$
+      \item Choose 1 red/white and 2 blue: $\binom{3}{1}\binom{5}{2}$
+    \end{enumerate}
+
+    $P(X = -1) = P(X = 1) = \frac{\binom{3}{2}\binom{3}{1}\binom{3}{1}{\binom{5}{2}}}{\binom{11}{3}}$\\
+    \begin{enumerate}
+      \item Sample Space: $\binom{11}{3}$ Pick three balls
+      \item Choose 2 red and 1 white (or vice versa for -1): $\binom{3}{2}
+        \binom{3}{1}$
+      \item Choose 1 red/white and 2 blue: $\binom{3}{1}\binom{5}{2}$
+    \end{enumerate}
+    $P(X = -2) = P(X = 2) = \frac{\binom{3}{2}\binom{5}{1}}{\binom{11}{3}}$\\
+    \begin{enumerate}
+      \item Sample Space: $\binom{11}{3}$ Pick three balls
+      \item Only way to get 2 or -2 is to get 2 white/red and a blue, so
+        $\binom{3}{2}\binom{5}{1}$
+    \end{enumerate}
+    $P(X = -3) = P(X = 3) = \frac{1}{\binom{11}{3}}$\\
+    \begin{enumerate}
+      \item Sample Space: $\binom{11}{3}$ Pick three balls
+      \item only one possibility of picking
+    \end{enumerate}

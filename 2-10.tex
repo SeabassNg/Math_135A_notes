@@ -1,0 +1,30 @@
+\section*{2/10 (Discussion)}
+  \subsection*{Random Variables}
+    $X : S \to \mathbb{R}$\\
+    events $\mapsto$ subsets of $\mathbb{R}$
+  \subsection*{Homework 4.5}
+    Let $X$ be the difference between heads and tails when a coin is tossed
+    $n$ times. What are the possible values of $X$?\\
+  \subsection*{Answer}
+    We'll define $X$ as the number of heads - number of tails.\\
+    If $n = 1$, $X_i = \begin{cases} 1 & \text{if you get heads}\\ -1
+      & \text{if you get tails} \end{cases}$\\
+    $X = X_1 + \ldots + X_n$ \\
+    The possible outcomes of $X$ above is $-n, -n + 2, -n + 4, \ldots, n-2, n$\\
+    $P(X = -n) = P(\text{all tails}) = (\frac{1}{2})^n$\\
+    $P(X = -n + l)$? where $l = 0, 1, \ldots, 2n$\\
+    $P(X = -n + l) = P(l \text{ heads}) = \frac{\binom{n}{l}}{2^n}$\\
+  \subsection*{Homework 4.15}
+    Let's say we have 66 balls. Pick the 11 worst teams\\
+    Team 1 gets 1 ball, Team 2 gets 2 balls, $\ldots$, Team 11 gets 11 balls.\\
+    Pick 3 distinct balls from the urn.\\
+    Let $X$ denote the draft pick of Team 11.\\
+    Find the probability mass function of $X$.\\
+    $P(X = 1)$? where $X = \{ 1, 2, 3, 4\}$\\
+    $P(X = 1) = \frac{11}{66}$\\
+    $P(X = 2) = P(\text{ Team i $\not= 11$ up to $i$ times, then Team 11
+      choose}) = \sum_{i = 1}^{10} \sum_{l = 0}^{i - 1}\pi_{k = 1}^l 
+      \frac{i - k}{66 - k} \times \frac{11}{66 - l - 1}$\\
+    Another way, $P(X = 2) = \sum_{i = 1}^{10} \frac{1}{66}\frac{11}{66 - i}$\\
+    $P(X = 3) = \sum_i \sum_j \frac{i}{66}\frac{j}{66-j}\frac{11}{66 - i - j}$\\
+    $P(X = 4) = 1 - P(X = 1) - P(X = 2) - P(X = 3)$\\

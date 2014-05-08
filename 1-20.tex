@@ -1,0 +1,42 @@
+\section*{1/20 (Discussion)}
+
+  \subsection*{Sample Spaces}
+    In Combinatorial sense,\\
+    \begin{enumerate}
+    \item Choosing w/o replacement. Given S, sample space is the subsets of S of
+      given size.\\
+      i.e. 10 keys, 1 key open your door. What's the probability that you can 
+      open door on 5th try?\\
+      Total number of subsets of size 5: $\binom{10}{5}$
+      Number of ways to open on 5th: $\binom{9}{4}\binom{1}{1}$\\
+      So, $P = \frac{\binom{9}{4}\binom{1}{1}}{\binom{10}{5}}$\\
+    \item Choosing with replacement. $k$ chairs in $S$, Sample space is 
+      $S \times \ldots \times S$.\\
+      i.e. Again, 10 keys, try without replace, $k$ to open door, What is
+      the probability of opening on the 5th try?\\
+      Total number of choices: $10^5$\\
+      Number of ways to suceed: $9^4 * 1$\\
+      So, $P = \frac{9^4}{10^5}$\\
+    \item Inclusion-Exclusion Principle\\
+      Given events, $A_1, \ldots, A_n$\\
+      $P(A_1 \bigcup \ldots \bigcup A_n) = \sum P(A_i) - \sum P(A_j \bigcap
+      A_k) + \sum P(A_l \bigcap A_m \bigcap A_p) \ldots $\\
+    \item Mutually Exclusive Events\\
+      Two events are mutually exclusive if $A_i \bigcap A_j = \emptyset$
+    \item Roll a fair die 10 times\\
+      $P(\text{at least one number appears exactly once}) = ?$\\
+      Total number of outcomes is $6^{10}$\\
+      Consider $B_1, \ldots, B_6$\\
+      $P(B_1 \bigcup \ldots \bigcup B_6) 6 P(B_1) - \binom{6}{2} P(B_1 \bigcap
+      B_2) + \binom{6}{3}P(B_1 \bigcap B_2 \bigcap B_3) - \binom{6}{4} P(
+      B_1 \bigcap \ldots \bigcap B_4) + \binom{6}{5} P(B_1 \bigcap \ldots 
+      \bigcap B_5) - \binom{6}{6} P(B_1 \bigcap \ldots \bigcap B_6)$
+    \end{enumerate}
+    \underline{Problem 2.40}: $\exists 4$ TV repairmen\\
+    4 TV sets break down\\
+    $P(\text{exactly } i \text{ are called})$?\\
+    Total outcomes = $4^4$\\
+    $P_1 = \frac{\binom{4}{1}}{4^4}$\\
+    $P_2 = \frac{\binom{4}{2}(\binom{4}{1} + \binom{4}{2} + \binom{4}{3})}{4^4}$\\
+    The $\binom{4}{2}$ ways is to choose repairman and the rest is to 
+    choose customers.

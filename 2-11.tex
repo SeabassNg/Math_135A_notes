@@ -1,0 +1,112 @@
+\section*{2/11}
+
+\underline{Example}: {\bf Poisson distribution and law.} 
+\vskip0.2cm 
+
+Assume a crime has been committed. It is known that the 
+perpetrator has certain characteristics, which occur
+with small frequency $p$ (say, $10^{-8}$) in the population of size $n$
+(say, $10^8$). 
+A person who matches these characteristics has been 
+found at random (e.g., at a routine traffic stop,  or by
+airport security) and, since $p$ is so small, charged with the 
+crime. There is no other evidence. What should the defense be? 
+
+Let's start with a mathematical model of this situation. Assume 
+that $N$ is the number of people with given characteristics. This 
+is a Binomial random variable, but given the assumption we can 
+easily assume it's Poisson with $\lambda=np$. Choose a random person from 
+among these $N$, call that person $C$, the criminal. Then, independently, 
+choose at random another person, $A$, who is arrested. The question 
+is whether $C=A$, that is, whether the arrested person is guilty. Mathematically, 
+we can formulate the problem like this: 
+%$$
+%P(C=A\,|\, N\ge 1)  =  \frac{P(C=A, N\ge 1)}{P(N\ge 1)}. 
+%$$
+We need to condition as the experiment cannot even be performed when $N=0$. 
+Now by the first Bayes formula, 
+\begin{eqnarray*}
+P(C=A, N\ge 1)&= &\sum_{k=1}^{\infty} P(C=A, N\ge 1\,|\,N=k)\cdot P(N=k)\\
+&= &\sum_{k=1}^\infty P(C=A\,|\,N=k)\cdot P(N=k)\\
+\end{eqnarray*}
+and 
+$$
+P(C=A\,|\,N=k)=\frac{1}{k}, 
+$$
+so 
+$$
+P(C=A, N \ge 1)=\sum_{k=1}^{\infty} \frac{1}{k} \cdot \frac{\lambda^k}{k!}\cdot 
+e^{-\lambda}. 
+$$
+The answer to the question then is 
+$$
+P(C=A\,|\, N\ge 1)=\frac{e^{-\lambda}}{1-e^{-\lambda}}\cdots
+\sum_{k=1}^{\infty} \frac{\lambda^k}{k\cdot k!}. 
+$$
+There is no closed-form expression for the sum, but it can be easily
+computed numerically. The defense may claim 
+that the probability of innocence, $1-$(the above probability), 
+is about $0.2330$ when $\lambda=1$, quite enough for a reasonable
+doubt. 
+
+This model was in fact tested in court, in the famous {\it 
+People v.~Collins\/} case, a 1968 jury trial in Los Angeles. In this instance,  
+it was claimed by prosecution (on flimsy grounds) that 
+$p=1/12,000,000$ and $n$ would be the adult couples in the LA area, 
+say $n=5,000,000$. The jury convicted the charged couple in a robbery 
+on the basis of the prosecutor's claim that, due to low $p$, ``the chances of there 
+being another couple [with specified characteristics, in the LA area]
+must be one in a billion.'' The Supreme Court of California reversed 
+the conviction, and gave two reasons. The first reason was insufficient foundation 
+for estimate for $p$. The second reason was that 
+$$
+P(N\ge 2\,|\, N\ge 1)=\frac{1-e^{-\lambda}-\lambda e^{-\lambda}}{1-e^{-\lambda}}
+$$ 
+from the prosecutor's claim is in fact much larger than he claimed,
+namely about $0.1939$. This
+is about twice as big as the probability of innocence, which 
+by the above formula would be about $0.1015$. 
+  \subsection*{Geometric random variables}
+    $X =$ number trials required for the first success in independent trials
+    with success probability $p$.\\
+    $P(X = n) = p(1-p)^{n-1}$ with $n = 1, 2, \ldots$\\
+    $EX = \frac{1}{p}$\\
+    $Var(X) = \frac{1-p}{p^2}$\\
+    $P(X \ge n) = \sum_{n}^{\infty} p(1-p)^{n-1} = (1-p)^{n-1}$\\
+    $P(X \ge n + k | X \ge k) = \frac{(1-p)^{n+k-1}}{(1-p)^{k}}$\\\\
+    \underline{Example}: $X = $ number of tosses required for 1st heads (in
+    a fair coin).\\
+      $EX = 2$.\\\\
+    \underline{Example}: you roll a die, your opponent tosses a coin.\\
+    Roll 6 $\to$ you win.\\
+    Now roll 6, opponent tosses Heads $\to$ you lose\\
+    Otherwise, the game repeats.\\
+    On the average, how many steps does the game last?\\
+    $P(\text{game decided on step 1}) = \frac{1}{6} + \frac{5}{6}\frac{1}{2}$\\
+    $EN = \frac{1}{\frac{1}{6} + \frac{5}{6}\frac{1}{2}} = \frac{12}{7}$
+
+  \subsection*{Continuous random variables}
+    Let $X$ be a continuous random variable.\\
+    If $P(X \in B) = \int f(x)\,dx$ where $f$ is a nonnegative function which
+    $\int_{-\infty}^{\infty} f(x)\,dx = 1$\\
+    The function $f = f_X$ is called the density of $X$.\\
+    $P(X \in [a,b]) = P(a \le X \le b)$\\
+    $P(X = a) = 0$\\
+    $P(X \le a) = \int_{-\infty}^a f(x)\,dx = P(X < a)$.\\
+
+  \subsection*{distribution functions}
+    $F(x) = P(X \le x) = \int_{-\infty}^x f(s)\,ds$ where $F$ is the 
+    distribution function.\\
+    $\frac{dF}{dx} = f$\\
+    $EX = \int_{-\infty}^{\infty}f(x)\,dx$\\\\
+    \underline{Example}: $f(x) = \begin{cases} cx & 0 < x < 4\\ 0 & 
+      \text{otherwise} \end{cases}$\\
+    \begin{enumerate}
+      \item Determine $c$
+      \item $P(1 \le X \le 2)$
+      \item $EX, EX^2$
+    \end{enumerate}
+    Determine $c$.\\
+    $\int_0^4 cx\,dx = 1$, so $c = \frac{1}{8}$\\
+    $\int_1^2 \frac{x}{8}\,dx = \frac{3}{16}$\\
+    $EX = \int_0^4 \frac{x^2}{8}\,dx = \frac{1}{3}$\\

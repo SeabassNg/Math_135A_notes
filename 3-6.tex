@@ -1,0 +1,117 @@
+\section*{3/6}
+  \subsection*{Expectation}
+    $$
+      Eg(X,Y) = \int\int g(x,y)f(x,y)\,dxdy \text{(Continuous case)}
+    $$
+    $$
+      Eg(X,Y) = \sum_{x,y}g(x,y)p(x,y) \text{(discrete case)}
+    $$
+    \underline{Example}: Hw8.6\\
+      Joint mass function with (product of $i,j$
+      \begin{tabular}{c | c | c| c | c}
+        $i \backslash j$  & 1 & 2 & 3 & 4\\
+        \hline
+        1 &  .1 (1) & .1 (2) & .1 (3) & .1 (4)\\
+        \hline
+        2 &  .1 (2) & .1 (4) & .1 (6) & .1 (8)\\
+        \hline
+        3 &  .1 (3) & .1 (6) & 0 & 0\\
+        \hline
+        4 &  .1 (4) & 0 & 0 & 0\\
+      \end{tabular}
+
+    \noindent\underline{Example}: $(X,Y)$ is a random point in the right 
+    triangle with both sides of length 1.\\
+    Compute $EX$, $EY$, and $EXY$.\\
+    \begin{eqnarray*}
+      EX & = & \int_0^1 dx \int_0 ^{1-x} 2\,dy\\
+      & = & \int_0^1 2x(1-x)\,dx\\
+      & = & 2(\frac{1}{2} - \frac{1}{3})\\
+      & = & \frac{1}{3}
+    \end{eqnarray*}
+    $EY = EX = \frac{1}{3}$
+    \begin{eqnarray*}
+      E(XY) & = & \int_0^{1} dx \int_0^{1-x} xy 2\,dy\\
+        & = & \int_0^1 2x\frac{(1-x)^2}{2} \,dx\\
+        & = & \int_0^1 (1-x)x^2 \,dx\\
+        & = & \frac{1}{3} - \frac{1}{4}\\
+        & = & \frac{1}{12}
+    \end{eqnarray*}
+
+  \subsection*{Properties of expectation}
+    \begin{enumerate}
+      \item $E(aX + b) = aE(X) + b$
+      \item $E(X_1 + \ldots + X_n) = E(X_1) + \ldots + E(X_n)$
+    \end{enumerate}
+    \begin{proof}
+      Proof of property of two\\
+      Take $n = 2$, $E(X+Y) = EX + EY$\\
+      In the continuous case,
+      $$
+        \int\int(x+y)f(x,y)\,dx\,dy = \int\int xf(x,y)\,dx\,dy + \int\int y
+        f(x,y)\,dx\,dy
+      $$
+      Use induction.
+    \end{proof}
+    \underline{Example}: Assume that an urn contains 10 black, 7 red, and 
+      15 white balls. Take 5 balls out.
+      \begin{enumerate}
+        \item with replacement
+        \item without replacement
+      \end{enumerate}
+      and $X$ is the number of red balls pulled out. Compute $EX$.\\\\
+    \underline{"Indicator trick"}: Let $I_i = I\{i\text{th ball is red}\} = 
+    \begin{cases}1 & \text{if $i$th ball is red}\\ 0 & \text{otherwise}
+    \end{cases}$\\
+   Let $X = I_1 + I_2 + I_3 + I_4 + I_5$.\\\\
+   In part 1, this is $Binomial(5, \frac{7}{22})$.\\
+   You know that $EX = 5 \cdot \frac{7}{22}$, but let's pretend we don't know.\\
+   $$
+    EI_1 = 1 \cdot P(\text{1st ball is red}) = \frac{7}{22} = EI_2 = \ldots
+    = EI_5
+   $$
+   Therefore, $EX = 5 \cdot \frac{7}{22}$.\\\\
+   In part 2, one way you can do it:\\
+   $$
+    P(X = i) = \frac{\binom{7}{i}\binom{15}{5-i}}{\binom{22}{5}}
+   $$
+   where $i = 0, 1, \ldots, 5$.\\
+   Then, we know that 
+   $$
+    EX = \sum_{i = 0}^5 i \frac{\binom{7}{i}\binom{15}{5-i}}{\binom{22}{5}}
+   $$
+   Now, the indicator trick, it turns out to be equal to $5 \cdot 
+   \frac{7}{22}$ with the same calculations as the replacement version.\\
+    \underline{Example}:
+      {\bf "Matching problem"}\\
+      $n$ people buys $n$ gifts, which are then assigned at random.\\
+      Let $X$ be the number of people who recive their own gift.\\
+      What is $EX$?\\
+      Let $I_i  I\{\text{Person $i$ receives own gift}\}$\\
+      Let $X = I_1 + I_2 + \ldots + I_n$\\
+      $EI_i = \frac{1}{n}$\\
+      And so, $EX = 1$.\\
+      Let $X^2 = I_1 + \ldots + I_n + sum_{i \not= j} I_i I_j$\\\\
+    \underline{Example}:
+      5 married couples are seated around a round table at random. Let $X$ be
+      the number of wives who sit next to their husbands. What is $EX$?\\
+      Let $I_i = I\{\text{wife $i$ sits next to her husband}\}$.\\
+      Then, $X = I_1 + \ldots + I_5$\\
+      $EI_i = \frac{2}{9}$\\
+      $EX = \frac{10}{9}$\\\\
+    \underline{Example}: {\bf Coupon collector problem}\\
+      We have $n$ cards. Sample them with replacement.\\
+      Let $N$ be the number of cards you need to sample for complete
+      collection.\\
+      What is $EN$?\\
+      Let $N_1$ be the number of cards to receive of 1st card.\\
+      Well, this is trivial. The first card you buy is always the 1st card.\\
+      Let $N_2$ be the number of cards to get the second new card.\\
+      Let $N_3$ be the number of cards to get the third new card.\\
+      $\vdots$\\
+      Let $N_n$ be the number of cards to get the $n$th new card.\\
+      We know that $N = N_1 + \ldots + N_n$.\\
+      $N_i$ is geometric with success, $p = \frac{n-i + 1}{n}$.
+      $EN_i = \frac{n}{n-i+1}$\\\\
+      $EN = n(1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{n})$\\
+      Asymptotically, the harmonic sequence above $\approx \log(n)$.

@@ -1,0 +1,67 @@
+\section*{2/18}
+  $X$ is Normal, $N(\mu, \sigma^2)$ means
+  \begin{eqnarray*}
+    f(x) = f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+  \end{eqnarray*}
+  where $x \in (-\infty, \infty)$.
+
+  Such a random variable occurs frequently, i.e. a measurement with a random 
+  mistake or height of a random heron in a population.\\
+  Some properties:
+  \begin{eqnarray*}
+    \int_{-\infty}^{\infty} f(x)\,dx & = & 1\\
+    EX & = & \mu\\
+  \end{eqnarray*}
+  Proof of $EX$:
+  \begin{eqnarray*}
+    EX & = & \int_{-\infty}^{\infty} (x - \mu + \mu) \frac{1}{\sigma - 
+      \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\,dx\\
+    \int_{-\infty}^{\infty} t \frac{1}{\sigma - \sqrt{2\pi}}e^{-\frac{t^2}{2
+      \sigma^2}}\,dx & = & 0\\
+    EX & = & 0\\
+  \end{eqnarray*}
+  \underline{Example}: Let $Y = \alpha X + \beta$.\\
+  How is $Y$ distributed? ($\alpha > 0$)
+  \begin{eqnarray*}
+    F_Y(y) &=& P(Y \le y) = P(\alpha X + \beta \le y)\\
+    &=& P(X \le \frac{y - \beta}{\alpha})\\
+    &=& \int_{-\infty}^{\frac{y - \beta}{\alpha}} f(x) \,dx
+  \end{eqnarray*}
+  \begin{eqnarray*}
+    f_Y(y) &=& f(\frac{y - \beta}{\alpha})\frac{1}{\alpha}\\
+      &=& \frac{1}{\sqrt{2\pi}\sigma\alpha} e^{-\frac{(y - \beta - 
+        \alpha\mu)^2}{2 \alpha^2\sigma^2}}\\
+  \end{eqnarray*}
+  $Y$ is normal with $EY = \alpha\mu + \beta$, $Var(Y) = (\alpha \sigma)^2$\\
+  In particular, $Z = \frac{x - \mu}{\sigma}$ has $EZ = 0$ and $Var(Z) = 1$.\\
+  $Z$ is called the standard normal.
+  \begin{eqnarray*}
+  f_Z(z) & = & \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\\
+  F_Z(z) & = & \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{z}e^{-x^2/2}\,dx = \Phi(Z)\\
+  \end{eqnarray*}
+  You have to look at the table in the book for the values of $\Phi(Z)$\\\\
+  $z = \frac{X - \mu}{\sigma}$
+  \underline{Example}: Let $z > 0$. What is $\Phi(Z)$?\\
+    $\Phi(-Z) = 1 - \Phi(Z)$\\\\
+  \underline{Example}: If $X$ is $N(\mu, s\sigma^2)$, then $P(|X - \mu| \ge 
+  \sigma)$?\\
+  $P(|X - \mu| \ge \sigma) = P(|\frac{x - \mu}{\sigma} \ge 1) = P(|Z| \ge 1)
+  = 2P(z \ge 1) = 2(1 - \Phi(1))$\\\\
+  $P(|X - \mu| \ge 2\sigma) \approx 7\%$\\
+  $P(|X - \mu| \ge 3\sigma) \approx .26\%$\\\\
+  \underline{Example}:
+    $X$ with $N(\mu = 2, \sigma^2 = 5^2)$.\\
+    \begin{eqnarray*}
+      P(1 \ge X \ge 4)  &=&  P(1 \ge X \ge 4)\\
+      & = & P(\frac{1 - 2}{5} \le \frac{X-2}{5} \le \frac{4-2}{5})\\
+      & = & P(-.2 \le z \le .4)\\
+      & = & P(z \le .4) - P(z \le -.2)\\
+      & = & \Phi(.4) - (1 - \Phi(.2)) \\
+      & = & .2347
+    \end{eqnarray*}
+
+  \subsection*{De Moirre-Laplace Central Limit Theorem}
+    Let $S_n$ be a $Binomail(n,p)$ random variable.\\
+    Let $p$ be fixed. (e.g. 0.5) and $n$ be large (i.e. $n = 100$)\\
+    $\frac{S_n - np}{\sqrt{np(1-p)}}$ is distributed approximiately as $N(0,1)$.
+

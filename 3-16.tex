@@ -1,0 +1,68 @@
+\section*{3/16}
+  \subsection*{Central Limit Theorem}
+    Let $X, X_1, X_2, \ldots$ be independent and identical distribution.\\
+    Then, the distribution of
+    $$
+      \frac{X_1 + \ldots + X_n - n\mu}{\sigma\sqrt{n}}
+    $$
+    if approximately $N(0,1)$\\\\
+  \underline{Note}: $E(X_1 + \ldots + X_n) = n\mu$, $Var(X_1 + \ldots + X_n) =
+  \sigma^2 \cdot n$
+  \underline{Example}: $X_i$ is uniformly distributed on $[0,1]$ 
+  independently.\\
+  \begin{enumerate}
+    \item Compute approximately $P(S_{200} \le 90)$
+    \item Find $n$ so that $P(S_n \ge 50)$ with probability of at least .99
+  \end{enumerate}
+  $EX_i = .5$\\
+  $Var(X_i) = E(X_i^2) - E(X_i)^2 = \int_0^1 x^2\,dx - \left(\frac{1}{2}
+  \right)^2 = \frac{1}{12}$.\\
+  Part 1) 
+  \begin{eqnarray*}
+    P(S_{200} \le 90) & = & P\left(\frac{S_{200} - 200 \cdot \frac{1}{2}}{
+    \sqrt{200 \cdot \frac{1}{12}}} \le \frac{90 - 200 \cdot \frac{1}{2}}{
+    \sqrt{200 \cdot \frac{1}{12}}}\right)\\
+    & \approx & P(Z \le -\sqrt{6}) \text{ where $Z$ is the standard normal}\\
+    & = & 1 - P(Z \le \sqrt{6})\\
+    & \approx & 1 - .993\\
+    & = & .007
+  \end{eqnarray*}
+  Part 2)
+  \begin{eqnarray*}
+    P\left(\frac{S_n - n \cdot \frac{1}{2}}{\sqrt{n \cdot \frac{1}{12}}}
+      \ge \frac{50 - n\cdot \frac{1}{2}}{\sqrt{n \frac{1}{2}}}\right)
+    & = & .99\\
+    P\left(z \ge - \frac{\frac{n}{2} - 50}{\sqrt{n \cdot \frac{1}{2}}}\right)
+    & = & .99\\
+    P\left(z \le \frac{\frac{n}{2} - 50}{\sqrt{n \cdot \frac{1}{12}}}\right) & = &
+    \Phi\left(\frac{\frac{n}{2} - 50}{\sqrt{n \cdot \frac{1}{12}}}\right) = .99\\
+    & \vdots & \text{              (Look up tables)}\\
+    n - 1.345\sqrt{n} - 100 &=& 0\\
+    n & = & 115
+  \end{eqnarray*}
+  \underline{Example}: A casino charge \$1 for entrance. For promotion, they
+  offer to first 70000 "guests" the following game:\\
+  Roll a die
+    \begin{enumerate}
+      \item If you get a 6, you get free entrance and \$2
+      \item If you get a 5, you get free entrance
+      \item Pay normal fee otherwise
+    \end{enumerate}
+  Compute the revenue loss with probability .9.\\
+  In symbols, if $L$ is lost revenue, find $X$ so that
+  $$
+    P(L \le x) = .9
+  $$
+  Let $L = X_1 + X_n$ where $n \ge 30000$ and $P(X_1 = 0) = \frac{4}{6}$,
+  $P(X_1 = 1) = \frac{1}{6}$, and $P(X_2 = 3) = \frac{1}{6}$.\\\\
+  $EX_i = \frac{2}{3}$, $Var(X_i) = \frac{1}{6} + \frac{9}{6} - \left(\frac{2}
+  {3}\right)^2 = \frac{11}{9}$\\
+  \begin{eqnarray*}
+    P(L \le x) & = & P\left( \frac{L - \frac{2}{3} \cdot n}{\sqrt{n \cdot 
+    \frac{10}{9}}} \le \frac{x - \frac{2}{3}\cdot n}{\sqrt{n \cdot \frac{11}{9}
+    }}\right) = .9\\
+    & \approx & P\left(z \le \frac{x - \frac{2}{3} \cdot n}{\sqrt{n \cdot 
+    \frac{11}{9}}}\right) = .9\\
+    \frac{x - \frac{2}{3} \cdot n}{\sqrt{n \cdot \frac{11}{9}}} & = & .8159\\
+    x & = & 20000 + 235\\
+  \end{eqnarray*}

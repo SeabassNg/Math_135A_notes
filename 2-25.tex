@@ -1,0 +1,108 @@
+\section*{2/25}
+  From last time,\\
+  \underline{Example}:
+    $$
+      f(x,y) = \begin{cases} \frac{21}{4}x^2y & x^2 \le y < 1\\ 0 & \text{
+      otherwise} \end{cases}
+    $$
+    Compute marginal densities. Independence?\\
+    $$
+      f_X(x) = \int_{x^2}^1 \frac{21}{4} x^2y \, dy = \frac{21}{8} x^2(1-x^4)
+    $$
+    where $x \in (-1, 1]$.\\
+    \underline{Note}: The range is from $x^2$ to 1 because we are measuring
+    the area from $y = x^2$ to $y = 1$.\\\\
+    $$
+      f_Y(y) = \int_{-\sqrt{y}}^{\sqrt{y}} \frac{21}{4}x^2y\,dx = \frac{7}{2}
+      y^{\frac{5}{2}}
+    $$
+    where $y \in [0,1]$\\
+    \underline{Note}: The range is from $-\sqrt{y}$ to $\sqrt{y}$ because we 
+    are measuring the area from the curve $x = -\sqrt{y}$ and $x = \sqrt{y}$.\\
+    They are not independent because if you multiply the two marginal densities,
+    you don't get the $f(x,y)$.\\\\
+  \underline{Example}: $(X, Y)$ are random points in the square of length of 1
+  with bottom left corner at the origin.\\
+  Independence?\\
+  $$
+    f(x,y) = \begin{cases} 1 & (x,y) \in [0,1] \times [0,1]\\ 0 & 
+      \text{otherwise}\end{cases}
+  $$
+  Marginal densities:\\
+  $$
+    f_X(x) = 1 
+  $$
+  if $x \in [0,1]$.\\
+  $$
+    f_Y(y) = 1
+  $$
+  if $y \in [0,1]$.\\
+  This is independent.\\\\
+  Let $f(x,y)$ be distributed under the curve $y = x$.
+  $$
+    f(x,y) = \begin{cases} 2 & 0 \le y \le x \le 1\\ 0 & \text{otherwise} 
+      \end{cases}
+  $$
+  Marginal densitites:\\
+  $$
+    f_X(x) = 2x
+  $$
+  if $x \in [0,1]$
+  $$
+    f_Y(y) = 2(1-y)
+  $$
+  if $y \in [0,1]$\\
+  They are not distributed uniformly and they're no longer independent in this
+  case.\\\\
+  \underline{Note}: The only way for two variables to be indepdent in a 
+  continuous setting is if it distributed uniformly to a rectangle.\\\\
+  \underline{Example}: Mr. and Mrs. Smith agree to meet at a place "between
+  5 and 6 p.m". Assume that they both go there at a random time and are 
+  indepdent.\\
+  \begin{enumerate}
+    \item Find the density for the time one of them will have to wait for the 
+    other.
+    \item Mrs. Smith later tells you she had to wait. Probability that Mr. Smith
+      arrived before 5:30 given that.
+  \end{enumerate}
+  Let $X$ be the time when Mr. Smith arrives and
+  $Y$ be the time when Mrs. Smith arrives.\\
+  We will assume that $(X,Y)$ is uniform on $[0,1] \times [0,1]$.\\
+  Our unit is 1 hr\\
+  \underline{(Part 1)}: Let $T = |X - Y|$.\\
+  Let $t \in [0,1]$ since $t$ is the difference between $x$ and $y$.
+  \begin{eqnarray*}
+    P(T \le t) & = & P(|X - Y| \le t)\\
+      & = & P(-t \le X - Y \le t)\\
+      & = & P(X - t \le Y \le X + t)\\
+      & = & 1 - (1-t)^2 \text{ Take the area of the two triangles and subtract
+        their area off the unit square}\\
+      & = & 2t - t^2
+  \end{eqnarray*}
+  $$
+    f_T(t) = 2 - 2t
+  $$
+  \underline{(Part 2)}: 
+  \begin{eqnarray*}
+    P( X \le .5 | X > Y ) & = & \frac{P(X \le .5, X > Y)}{P(X > Y)}\\
+      & = & \frac{\frac{1}{8}}{\frac{1}{2}}\\
+      & = & \frac{1}{4}\\
+  \end{eqnarray*}
+  \\\\
+  \underline{Example}: Assume $X$ and $Y$ are independent.\\
+  $X$ is uniform on $[0,1]$ and $Y$ has density, $f_Y(y) = 2y$, if 
+  $y \in [0,1]$.\\
+  Compute $P(X+Y \le 1)$\\
+  $$
+    f(x,y) = \begin{cases} 2y & (x,y) \in [0,1] \times [0,1]\\
+      0 & \text{otherwise} \end{cases}
+  $$
+  We know that it is $2y$ because $X$ and $Y$ are independent and $P(X) = 1$
+  and $P(Y) = 2y$ where $(X,Y) \in [0,1] \times [0,1]$.\\
+  $$
+    \int_0^1 \,dx \int_0^{1-x} 2y\,dy
+  $$
+  or
+  $$
+    \int_0^1 \,dy \int_0^{1-y} 2y\,dx
+  $$

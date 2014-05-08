@@ -1,0 +1,63 @@
+\section*{2/9}
+  \subsection*{Poisson random variable}
+    $P(X = i) = e^{-\lambda}\frac{\lambda^i}{i!}$ where $i=0, 1, 2, \ldots$\\
+    $EX = \lambda$, $Var(X) = \lambda$\\
+    If $X$ is $Binomial(n,p)$, $n$ large, $p = \frac{\lambda}{n}$ is small,
+    then $P(X = i) \to_{n \to \infty} e^{\lambda}\frac{\lambda^i}{i!}$ for
+    each fixed $i$.\\
+    $EX = \sum_{i = 1}^{\infty} ie^{-\lambda} \frac{\lambda^i}{i!} = 
+    e^{-\lambda}\lambda \sum_{i = 1}^{\infty} \frac{\lambda^{i-1}}{(i-1)!}
+    = e^{-\lambda}\lambda e^{\lambda} = \lambda$\\
+    $pn = \lambda$, a constant.\\
+    \begin{proof}
+      \begin{eqnarray*}
+      P(X = i) & = & \binom{n}{i}\left(\frac{\lambda}{n}\right)^i \left(1 - 
+      \frac{\lambda}{n}\right)^{n-i}\\
+      & = & \frac{n(n-1)\ldots(n-i+1)}{i!} \frac{\lambda^i}{n^i} \left(1- 
+      \frac{\lambda}{n}\right)^n\\
+      & \to_{\infty} & \frac{\lambda^i}{i!} e^{-\lambda}
+      \end{eqnarray*}
+      So, basically, as $i \to \infty$, binomial becomes poisson.
+    \end{proof}
+    \underline{Example}: Suppose that probability that a person to be killed
+      by lighting in a year is 1/500 million. Assume that the US population is
+      300 million. (Again, assume indepedence)
+      \begin{enumerate}
+        \item P(3 or more people will be killed by lightning in 2001)
+        \begin{enumerate}
+          \item $X$ is the number of people killed by lightning.
+          \item $X = Binomial(n,p)$ where $n = $ 300 million and $p = $ 1/ 500
+            million
+          \item answer is $1 - (1 - p)^n - np(1-p)^{n-1} - \binom{n}{2}
+            p^2(1-p)^{n-2}$
+        \end{enumerate}
+        \item Approximate probability
+        \begin{enumerate}
+          \item $np = \frac{3}{5}$, so the approximately $Poisson(\frac{3}{5})$
+          \item Answer is $1 - e^{-\lambda} - \lambda e^{-\lambda} - 
+            \frac{\lambda^2}{2} e^{-\lambda} \approx .0231$
+        \end{enumerate}
+        \item Interpretation of $\lambda$ as "rate". P(two or more people
+          are killed within the first 6 months of 2005)
+        \begin{enumerate}
+          \item $p$ changes to $\frac{1}{100 \text{ million}}$ and $\lambda = 
+            \frac{3}{10}$. 
+          \item Again, answer is $1 - e^{-\lambda} - \lambda e^{-\lambda}$
+        \end{enumerate}
+        \item P(in exactly 3 of the 10 years exactly 3 people are killed)
+        \begin{enumerate}
+          \item Use Poisson approximation
+          \item Number of years with exactly people killed is $Binomial(10,
+            \frac{\lambda^3}{3!}e^{-\lambda})$. Again, $\lambda = \frac{3}{5}$.
+          \item The answer is then $\binom{10}{3}(\frac{\lambda^3}{3!} 
+          e^{-\lambda})^3(1 - \frac{\lambda^3}{3!}e^{-\lambda})^7$
+        \end{enumerate}
+      \end{enumerate}
+    \underline{Example}: Expeted number of years among the next 10, in which 2
+      or more people get killed.\\
+      $10(1 - e^{-\lambda} - \lambda e^{-\lambda})$\\\\
+    \underline{Example}: A crime is committed. The criminal is known to have a 
+      characterstics which occur with a small probability, $p$ (very small).
+      Assume we know nothing. A random person, among $n$, is arrested and 
+      charged with a crime. Defense?
+

@@ -1,0 +1,103 @@
+\section*{3/11}
+  \subsection*{Covariance}
+    Let $X,Y$ be random variables.\\
+    \begin{eqnarray*}
+      Cov(X,Y) & = & E((X - EX)(Y - EY))\\
+      & = & E(XY - (EX) \cdot Y - (EY) \cdot X + EX \cdot EY)\\
+      & = & E(XY) - EX \cdot EY - EY \cdot EX + EX \cdot EY\\
+      & = & E(XY) - EX \cdot EY
+    \end{eqnarray*}
+    \underline{Note}:
+    \begin{enumerate}
+      \item If $X$ and $Y$ are independent, then $Cor(X,Y) = 0$.
+      \item The converse of the previous is false.
+    \end{enumerate}
+    Example of why note 2 is true:\\
+    Suppose that we have a square(diamond) of length 1 with vertices on 
+    (0,1), (1,0), (0,-1), and (-1,0).\\
+    Let $(X,Y)$ be a random point on the square (diamond). \\
+    $$
+      EX = EY = 0
+    $$
+    \begin{eqnarray*}
+      EXY & = & \frac{1}{2} \int_{-1}^1 dx \int_{1 - |x|}^{-1 + |x|} xy\,dy\\
+      & = & \frac{1}{2} \int_{-1}^1 x\,dx \int_{-1 + |x|}^{1 - |x|}y \,dy\\
+      & = & \frac{1}{2} \int_{-1}^1 x\,dx (0)\\
+      & = & 0
+    \end{eqnarray*}
+    Are they independent? No\\\\
+    Let $X$ and $Y$ be indicator random variables, so $X = I_A$ and $Y = I_B$.\\
+    $EX = P(A)$, $EY = P(B)$, $E(XY) = E(I_{A \bigcap B}) = P(A \bigcap B)$.\\
+    We know then that the 
+    $$
+      Cov(X,Y) = P(A \bigcap B) - P(A)P(B) = P(A)[P(B|A) - P(B)]
+    $$
+    If $P(B|A) > P(B)$, then covariance is positive (meaning that they are 
+    positively correlated)\\
+    Otherwise, they are negatively correlated.\\
+    Intuitively, $Cov(X,Y) > 0$ means that "on the average", increasing $X$ will
+    tend to make $Y$ larger.\\
+  \subsection*{Variance-Covariance formula}
+    $$
+      E((\sum_{i = 1}^n X_i)^2) = \sum_{i = 1}^n EX_i^2 + \sum_{i \not= j}
+      E(X_iX_j)
+    $$
+    \begin{eqnarray*}
+      Var(\sum_{i = 1}^n X_i) & = & E[\sum_{i = 1}^n (X_i - EX_i)]^2\\
+      & = & \sum_{i = 1}^n Var(X_i) + \sum_{i \not= j } Cov(X_i, X_j)\\
+      Var(S) & = & E(S - ES)^2
+    \end{eqnarray*}
+    \begin{corollary}
+      If $X_1, X_2, \ldots, X_n$ are independent, then
+      $$
+        Var(X_1 + \ldots + X_n) = Var(X_1) + \ldots Var(X_n)
+      $$
+    \end{corollary}
+    \noindent\underline{Example}: Let $S_n$ be $Bernoulli(n, p)$, $S_n = 
+    \sum_{i = 1}^n
+    I_i$.\\
+    Let $I_i$ be $I\{\text{$i$th trial is a success}\}$ and $I_i$ are 
+    independent!\\
+    $S_n = np$, 
+    \begin{eqnarray*}
+      Var(S_n) & = &  \sum_{i = 1}^n Var(I_i)\\
+        & = & \sum_{i = 1}^n (E(I_i) - E(I_i)^2)\\
+        & = & n(p - p^2)\\
+        & = & np(1- p):
+    \end{eqnarray*}
+    \underline{Matching Problem}: Let $n$ people buy $n$ gifts, which are 
+    distributed at random.\\
+    Let $X$ be the number of people who gets their own gift.\\
+    Let $I_i = I\{\text{$i$th person gets own gift} \}$\\
+    We know that $X = \sum_{i = 1}^n I_i$\\
+    $$
+      EI_i = \frac{1}{n}
+    $$
+    Therefore,
+    $$
+      EX = 1
+    $$
+    Now, what is $E(X^2)$?\\
+    \begin{eqnarray*}
+      E(X^2) & = & n \cdot \frac{1}{n} + \sum_{i \not= j} E(I_iI_j)\\
+      & = & 1 + \sum_{i \not= j} \frac{1}{n(n-1)}\\
+      & = & 1 + 1\\
+      & = & 2
+    \end{eqnarray*}
+    $E(I_iI_j)$ is the probabiliy that $i$th person gets his own gift and
+    that $j$th person get his own gift.\\
+    Therefore, $Var(X) = 1$.\\
+    In fact, $X$ is close to Poisson with $\lambda = 1$.\\\\
+    \underline{Example}: Roll a die 10 times.\\
+    Let $X$ be the number of 6 rolled and $Y$ be the number of 5 rolled.\\
+    Let $X = \sum_{i = 1}^10 X_i$ where $X_i = I\{\text{$i$th roll is
+    6}\}$.\\
+    Let $Y = \sum_{i = 1}^10 Y_i$ where $Y_i = I\{\text{$i$th roll is
+    5}\}$.\\
+    Then, $EX = EY = \frac{10}{6}$.\\
+    Then, 
+    \begin{eqnarray*}
+      EXY & = & \sum_{i = 1}^10 \sum_{j = 1}^{10} E(X_iY_j)\\
+      & = & \sum_{i \not= j}\frac{1}{6^2} \text{(can't get both 5 and 6)}\\
+      & = & \frac{10 \times 9}{36}
+    \end{eqnarray*}

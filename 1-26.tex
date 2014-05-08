@@ -1,0 +1,102 @@
+\section*{1/26}
+  \underline{Example}: You roll a die, your friend tosses a coin.
+  \begin{itemize}
+    \item Roll six $\to$ win outright
+    \item If you do not roll a six, your friend tosses a head $\to$ lose 
+      outright
+    \item If neither, the game is repated until decided
+  \end{itemize}
+  $P(\text{you win}) = $?\\
+  One way: $P(\text{you win}) = \frac{1}{6} + \frac{5}{6}\frac{1}{2} 
+    \frac{1}{6} + (\frac{5}{6}\frac{1}{2})^2 \frac{1}{6} + \ldots$\\
+  $\frac{1}{6}$: Probability of getting a 6
+  $\frac{5}{6}\frac{1}{2}\frac{1}{6}$: Do not roll a 6, get tails,
+    and roll a 6.\\\\
+  $D = \{\text{game is decided on 1st step} \}$\\
+  $W = \{\text{you win}\}$\\
+  \begin{eqnarray*}
+    P(W) & = & P(W  | D)P(D) + P(W | D^c)P(D^c)\\
+    & = & P(W | D)P(D) + P(W)(1-P(D))\\ 
+    P(W) & = & P(W | D) \text{ (with a little algebra)}
+  \end{eqnarray*}
+  $P(W | D^c) = P(W)$ because your probability of winning on the next round is
+  the same.\\
+  $P(W | D) = \frac{P(W \bigcap D)}{P(D)} = \frac{\frac{1}{6}}{\frac{1}{6} + 
+    \frac{5}{6}\frac{1}{2}} = \frac{2}{7}$\\
+  $\frac{1}{6}$ means that you win on the first round by rolling a 6\\
+  $\frac{5}{6}\frac{1}{2}?$ Probability of winning the first round by
+  not rolling a 6, but getting heads.\\\\
+  \underline{Example}: "Craps"\\
+    Two dice are rolled, the sum, $S$, is observed.\\
+    \begin{itemize}
+      \item $S \in \{7, 11 \} \to$ win
+      \item $S \in \{2, 3, 12\} \to$ lose
+      \item $S \in \{4, 5, 6, 8, 9, 10 \} \to$ dice are rolled until the 
+        following
+      \begin{itemize}
+        \item $S$ repeats $\to win$
+        \item $7$ appears $\to win$
+      \end{itemize}
+    \end{itemize}
+    \begin{enumerate}
+      \item Win on the first roll: $\frac{8}{36}$
+      \item Lose on the first roll: $\frac{4}{36}$
+      \item Otherwise, 
+      \begin{itemize}
+        \item roll a 4: $\frac{3}{36} \to $ win: $\frac{\frac{3}{36}}{\frac{3}{36} + \frac{6}{36}} = \frac{3}{3+6} = \frac{1}{3}$
+        \item roll a 5: $\frac{4}{36}$
+        \item roll a 6: $\frac{5}{36}$
+        \item roll a 8: $\frac{5}{36}$
+        \item roll a 9: $\frac{4}{36}$
+        \item roll a 10: $\frac{3}{36}$
+      \end{itemize}
+    \end{enumerate}
+    Using the 1st Bayes' formula: $P(\text{win}) = \frac{8}{36} + 
+      2(\frac{3}{36}\frac{3}{3+6} + \frac{4}{36}\frac{4}{4+6} + \frac{5}{36}
+      \frac{5}{5+6}) = .493$\\\\
+  \begin{theorem}
+    2nd Bayes' formula:\\
+    $S = F_1 \bigcup \ldots \bigcup F_n$, where $F_i$ is pairwise disjoint and
+    $E$ is an event.\\
+    $P(F_j | E) = \frac{P(F_j \bigcap E)}{P(E)} = \frac{P(E | F_j)P(F_j)}
+      {P(E | F_1)P(F_1) + \ldots + P(E | F_n)P(F_n)}$
+  \end{theorem}
+  Often times, $F_j$ is called an hypothesis and $P(F_j)$ is called the prior
+  probability and $P(F_j | E)$ is called the posterior probability.\\\\
+  \underline{Example}:\\
+    \begin{tabular}{c | c | c}
+      Machines & percent items & item that comes from machine is defective 
+        with probability\\
+      \hline
+      $M_1$ & 20 & .001\\
+      \hline
+      $M_2$ & 30 & .002\\
+      \hline
+      $M_3$ & 50 & .003\\
+    \end{tabular}\\
+    Pick an item, test it, and you find it's defective. What is the probability
+    that it's made by $M_2$\\
+    $P(\text{ item is defective $|$ made by $M_1$}) = .001$\\
+    $P(\text{ item is defective $|$ made by $M_2$}) = .002$\\
+    $P(\text{ item is defective $|$ made by $M_3$}) = .003$\\
+    $P(M_2 | D) = \frac{.002 * .3}{.001 * .2 + .003 * .5 + .002 * .3} \approx
+      .26$ where $D$ is the event where a product is defective.\\\\
+  \underline{Example}: Assume 10\% of people have a certain disease. Test gives
+    the correct diagnosis with probability of .8. A random person from the
+    population has tested positive for the disease.\\
+    $P(\text{He's actually sick})$?\\
+    Let 
+    \begin{enumerate}
+      \item $S$ = \{ sick \}
+      \item $H$ = \{ healthy \}
+      \item $T$ = \{ tested positive \}
+    \end{enumerate}
+    Now,
+    \begin{enumerate}
+      \item $P(H) = .9$
+      \item $P(S) = .1$
+      \item $P(T | H) = .2$
+      \item $P(T | S) = .8$
+    \end{enumerate}
+    Now, $P(S |T) = \frac{P(T | S) P(S)}{P(T|S)P(S) + P(T|H)P(H)} = \frac{8}{31} \approx 31\%$
+

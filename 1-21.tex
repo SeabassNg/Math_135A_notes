@@ -1,0 +1,173 @@
+\section*{1/21}
+  \underline{Example}: Ten keys with only one that opens the door. 
+  Try one by one and discard after each unsuccessful try.\\
+  $P(\text{succeed on 5th try}) = \frac{1}{10}$\\
+  $P(\text{suceed on or before 5th try}) = \frac{1}{2}$\\\\
+  \underline{Example}: Roll a die 12 times.\\
+  $P(\text{a number occurs 6 times and two other number occur three 
+  times each})$\\
+  \begin{enumerate}
+    \item Sample Size: $6^{12}$
+    \item Choices to pick the first number that occurs 6 times: 
+      $\binom{6}{1} = 6$
+    \item Choices to pick the next two that occurs 3 times each:
+      $\binom{5}{2}$
+    \item Pick spots for the number that occurs 6 times:
+      $\binom{12}{6}$
+    \item Pick spots for one of the numbers that occur 3 times:
+      $\binom{6}{3}$
+  \end{enumerate}
+  Therefore, our probability is $\frac{6\binom{5}{2}\binom{12}{6}
+  \binom{6}{3}}{6^{12}}$\\\\
+  \underline{Example}: We have 10 pairs of socks in the closet. I will
+  pick 8 socks at random.\\
+  $P(\text{$i$ complete pair of socks})?$\\
+  \begin{enumerate}
+    \item Samples size: $\binom{20}{8}$ Pick 8 socks out of 20 socks (10 pairs)
+    \item Pick $i$ pairs of socks of the 10: $\binom{10}{i}$
+    \item Pick other socks. Make sure that you don't pick pairs again:
+      $\binom{10-i}{8-2i}$
+    \item Vary the complete pairs: $2^{8-2i}$
+  \end{enumerate}
+  Therefore, our probability is $\frac{2^{8-2i}\binom{10-i}{8-2i}\binom{10}{i}}
+  {\binom{20}{8}}$\\\\
+  \underline{Example}: {\bf Poker Hands}\\ 
+In the definitions, the word {\it value\/} 
+refers to A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2.
+This sequence also describes the relative rankings 
+of cards, with one exception: an Ace may be 
+regarded as 1 for the purposes of making a straight:\\ 
+%\flushpar 
+(a) {\it one pair\/}: two cards of same value plus 3 cards
+with different values 
+$$
+J\sp\,\, J \cl\,\, 9\he\,\, Q\cl\,\, 3\sp
+$$
+(b) {\it two pairs\/}: two pairs plus another card 
+of different value
+$$
+\,\,J\sp\,\, J \cl \,\,9\he\,\, 9\cl\,\, 3\sp
+$$
+(c) {\it three of a kind\/}: three cards of the same 
+value plus two with different values
+$$
+J\sp \,\,J \cl\,\, J\he\,\, 9\cl\,\, 3\sp
+$$
+(d) {\it straight\/}: five cards with consecutive values
+$$
+5\he\,\, 4\cl\,\, 3\cl\,\, 2\he\,\, A\sp
+$$
+(e) {\it flush\/}: five cards of the same suit
+$$
+K\cl\,\, 9\cl\,\, 7\cl\,\, 6\cl\,\, 3\cl
+$$
+(f) {\it full house\/}: a three of a kind and a pair
+$$
+J\cl\,\, J\di\,\, J\he\,\, 9\cl\,\, 9\sp
+$$
+(g) {\it four of a kind\/}: four cards of the same value
+$$
+J\cl\,\, J\di\,\, J\he\,\, J\cl\,\, 9\sp
+$$
+(e) {\it straight flush\/}: five cards of the same suit with consecutive values
+$$
+A\cl\,\, K\cl\,\, Q\cl\,\, J\cl\,\, 10\cl
+$$
+\vskip0.5cm 
+\halign{#\hfill&\hfill#\hfill& \quad\hfill#\hfill\cr
+$\text{hand}$ & \hfill $\text{no.~combinations}$  &\hfill $\text{approx.~prob.}$ \hfill\cr
+\noalign{\smallskip\hrule\smallskip}
+ {\it one pair\/}& $13\cdot {{12}\choose 3} \cdot {4\choose 2} \cdot 4^3$ & 0.422569\cr
+{\it two pairs\/}& ${{13}\choose 2} \cdot 11 \cdot {4\choose 2} \cdot {4\choose 2} \cdot 4$ & 0.047539\cr
+ {\it three of a kind\/}& $13\cdot {{12}\choose 2} \cdot {4\choose 3} \cdot 4^2$ & 0.021128\cr
+{\it straight\/}& $10\cdot 4^5$ & 0.003940\cr
+{\it flush\/}& $4\cdot {13\choose 5}$ & 0.001981\cr
+{\it full house\/}& $13\cdot 12 \cdot {4\choose 3} \cdot{4\choose 2}$ & 0.001441\cr
+ {\it four of a kind\/}& $13\cdot 12\cdot 4$ & 0.000240\cr
+ {\it straight flush\/}&$10\cdot 4$ & 0.000015\cr
+}
+\vskip0.5cm 
+%\flushpar
+{\it Note.} The probabilities of straight and flush above 
+include the possibility of a straight flush. The number 
+of all outcomes is ${{52}\choose 5}=2,598,960$. 
+Then, for example, for the  {\it three of a kind\/}, the number of 
+good outcomes is obtained by choosing the value
+for the three cards with the same value, then 
+the values of other two cards, then three cards 
+from the four of the same chosen value, then 
+a card from each of the two remaining chosen values.\\\\ 
+  \underline{Assumption}: Every hand is dealt at random\\
+  $P(\text{one pair})$?
+  \begin{enumerate}
+    \item Sample Size: $\binom{52}{5}$ Pick five cards out of 52
+    \item Pick a number: 13 choices
+    \item Pick the other three numbers that don't make a pair: $\binom{12}{3}$
+    \item Pick which pairs of the chosen number: $\binom{4}{2}$
+    \item Vary the suits of the other three number: $4^3$
+  \end{enumerate}
+  Therefore, our probability is $\frac{13\binom{4}{2}\binom{12}{3}}{\binom{52}{5}}$\\\\
+  $P(\text{flush})$?
+  \begin{enumerate}
+    \item Sample Size: $\binom{52}{5}$ Pick five cards out of 52
+    \item Pick a suit: 4 choices
+    \item Pick five numbers: $\binom{13}{5}$
+  \end{enumerate}
+  Our probability is $\frac{4\binom{52}{5}}{\binom{13}{5}}$.\\
+  This includes straight flushes.\\\\
+  $P(\text{straight flush})$?
+  \begin{enumerate}
+    \item Sample Size: $\binom{52}{5}$ Pick five cards out of 52
+    \item Pick a suit: 4
+    \item Pick the beginning number: 10. Not cyclic
+  \end{enumerate}
+  Therefore, our probability is $\frac{4*10}{\binom{52}{5}}$\\\\
+  $P(\text{nothing}) = P(\text{all cards with different values}) - 
+    P(\text{straight or flush})$?\\
+  \begin{enumerate}
+    \item Sample Size: $\binom{52}{5}$ Pick five cards out of 52
+    \item Pick 5 numbers of 13: $\binom{13}{5}$
+    \item Vary the suits: $4^5$
+  \end{enumerate}
+  Therefore, our probability is $\frac{\binom{13}{5}4^5}{\binom{52}{5}} - 
+  (P(\text{straight}) + P(\text{flush}) - P(\text{straight flush}))$\\
+  It's a little over half the time.\\\\
+  \underline{Example}:{\bf Football players example.} 
+  \vskip0.2cm 
+
+  Assume that 20 players, 10 offensive and 10 defensive, are 
+  to be distributed at random into 10 rooms, 2 per room. What 
+  is the probability that exactly $2i$ rooms are mixed, $i=0,\dots 5$? 
+
+  This is an example when careful thinking about what outcomes 
+  should be really pays off. Consider the following 
+  model for distributing players into rooms. First 
+  arrange them at random onto a row of 20 slots $S1,S2,\dots, S20$. Room 1
+  then takes players in slots $S1,S2$, so let's call these two slots $R1$.
+  Similarly, room 2 takes players in slots 
+  $S3, S4$, so let's call these two slots $R2$, etc. 
+
+  Now it is clear that we only need to keep track of distribution 
+  of 10 $d$'s into the 20 slots, corresponding to the positions of 10
+  defensive players. Any such distribution constitutes an outcome, 
+  and they are equally likely. Their number is ${{20}\choose {10}}$. 
+
+  To get $2i$ (for example, 4) mixed rooms, start by choosing 
+  $2i$ (ex., 4) out of 10 rooms which are going to be mixed. 
+  There are  ${{10}\choose {2i}}$ of these choices. You also 
+  need to make a choice into which slot in each of the 
+  $2i$ chosen mixed rooms the $d$ goes, for $2^{2i}$ choices. 
+
+  Once these two choices 
+  are made, you still have $10-2i$ (ex., 6) $d$'s to distribute into 
+  $5-i$ (ex., 3) rooms, as there are two $d$'s in each of those rooms. 
+  For this, you need to choose $5-i$ (ex., 3) rooms out of 
+  the remaining $10-2i$ (ex.,  6), for ${{10-2i}\choose {5-i}}$
+  choices, and this choice fixes a good outcome. 
+
+  The final answer therefore 
+  is 
+  $$
+  \frac{ {{10}\choose {2i}} 2^{2i} {{10-2i}\choose {5-i}} }{ {{20}\choose {10}} }
+  $$
+

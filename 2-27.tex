@@ -1,0 +1,75 @@
+\section*{2/27}
+  \underline{Example}: Two independent exponential random variables, $T_1$
+  with expectation of 10 minutes and $T_2$ with expectation 40 minutes.
+  What is $P(T_1 < T_2)$?\\
+  Our unit is 10 minutes.\\
+  We know that 
+  $$
+    f(t) = \lambda e^{-\lambda t}
+  $$
+  where $t \ge 0$ and expectation is $\frac{1}{\lambda} !$
+  $$
+    f_{T_1}(t_1) = e^{-t_1}
+  $$
+  with $t_1 \ge 0$\\
+  $$
+    f_{T_2}(t_2) = \frac{1}{4}e^{-t_2/ 4}
+  $$
+  with $t_2 \ge 0$\\
+  \begin{eqnarray*}
+    P(T_1 < T_2) & = & \int_{0}^{\infty} \,dt_1 \int_{t_1}^{\infty} e^{-t_1} 
+      e^{-t_2/ 4}\,dt_2\\
+      & = & \int_{0}^{\infty} \int_{0}^{\infty} e^{-t_1} \,dt_1 
+        e^{-t_1/ 4}\\
+      & = & \int_0^{\infty}e^{\frac{-5t_1}{4}}\,dt_1\\
+      & = & \frac{4}{5}
+  \end{eqnarray*}
+  \underline{Example}: {\bf Buffon needle problem}\\
+    \includegraphics{2-27_needle.png}
+    Horizontal lines at distance 1. Drop a needle of length $l$. Probability
+    that it intersects one of the lines.\\
+
+    \noindent Let $D$ be the distance from the center of hte needle to the
+    nearest line, and $\theta$ be the acute angle relative to the lines.\\
+
+    \noindent We will assume that $D$ and $\theta$ are independent and uniform:
+      $0 \le D \le \frac{1}{2}$ and $0 \le \theta \le \frac{\pi}{2}$.\\
+      The hypotenuse is $\frac{D}{\sin(\theta)}$
+    \begin{eqnarray*}
+      P(\text{intersects}) & = & P\left(\frac{D}{\sin(\theta)} < \frac{l}{2}\right)\\
+        & = & P(D < \frac{l}{2}\sin(\theta))
+    \end{eqnarray*}
+    \underline{Case 1}: Let $l \le 1$.\\
+      \begin{eqnarray*}
+        P(\text{intersects}) 
+          & = & \frac{\int_0^{\pi / 2} \frac{l}{2} \sin(\theta) d\theta}{\pi/4}\\
+          & = & \frac{l/2}{\pi/4}\\
+          & = & \frac{2l}{\pi}
+      \end{eqnarray*}
+      When $l = 1$, you get $\frac{2}{\pi}$\\\\
+    \underline{Case 2}: The curve, $D = \frac{l}{2} \sin(\theta)$ intersects
+      $D = \frac{1}{2}$ at $\arctan(\frac{1}{l})$.\\
+      \begin{eqnarray*}
+        P(\text{intersects}) & = & \frac{4}{\pi}\left[ \frac{l}{2}  
+          \int_0^{\arcsin(\frac{1}{l})}\sin(\theta)\,d\theta +
+          \left(\frac{\pi}{2} - \arcsin\frac{1}{l}\right)\frac{1}{2} \right]\\
+          & = & \frac{4}{\pi}\left(\frac{l}{2} - \frac{1}{2}\sqrt{l^2 -1}
+            + \frac{\pi}{4} - \frac{1}{2} \arctan \frac{1}{l}\right)
+      \end{eqnarray*}
+  \underline{Example}:
+    $X_1$, $X_2$, $X_3$ are uniform on $[0,1]$ and independent.\\
+    $P(X_1 + X_2 + X_3 \le 1)$?\\
+    $$
+      f_{(X_1, X_2, X_3}(x_1, x_2, x_3) = \begin{cases} 1 & \text{if } 
+        (x_1, x_2, x_3) \in [0,1]^3\\ 0 & \text{otherwise} \end{cases}
+    $$
+    And that is equal to $f_{x_1}(x_1) f_{x_2}(x_2) f_{x_3}(x_3)$ \\
+    \begin{eqnarray*}
+      P(X_1 + X_2 + X_3 \le 1) & = & \int_0^1 \,dx_1 \int_0^{1 - x_1} \,dx_2
+        \int_0^{1-x_1 - x_2} \,dx_3 = \frac{1}{6}
+    \end{eqnarray*}
+    In general, if $X_1, \ldots, X_n$ are independently uniform on $[0,1]$.\\
+    $$
+      P(X_1 + \ldots + X_n \le 1) = \frac{1}{n!}
+    $$
+

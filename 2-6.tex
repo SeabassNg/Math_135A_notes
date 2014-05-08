@@ -1,0 +1,79 @@
+\section*{2/6}
+  \begin{definition} $X$ is a discrete random variable with possible
+  values, $x_i$. Then, the expected values (average, mean) of $X$ is
+  $EX = \sum_i x_i P(x = x_i) = \sum_i x_i p(x_i)$\\
+  For any function, $g$, $Eg(X) = \sum_i g(x_i) P(X = x_i)$
+  \end{definition}
+  \noindent\underline{Example}: $X$, a random variable with $P(X = 1) = .2, P(X=2)
+    = .3, and P(X=3) = .5$\\
+    What should be the average value of $X$?\\
+    In a population of $n$ independent realization of $X$, about $.2n$ will
+    have $X = 1$, $.3n$ will have $X = 2$, $.5n$ will have $X = 3$.\\\\
+    Average: $\frac{1 \times .2n + 2 \times .3n + 3 \times .5n}{n} = 2.3$\\
+    The expected value is 2.3.\\\\
+    $X$ is a discrete random variable.\\
+    $\mu = EX$ where $\mu$ is the averag where $\mu$ is the average.\\\\
+    How about deviations? One way to find it, $E|X - \mu|$. Problem is that
+    absolute values are annoying.\\
+    Therefore, we devise, $E(x - \mu)^2$. This is known as the Variance of X.\\
+    Let the standard devision, $SD(X) = \sigma(X) = \sqrt{Var(X)} = 
+    \sqrt{E(x-\mu)^2}$\\
+    \begin{eqnarray*}
+      Var(X) & = & E[(X - \mu)^2]\\
+        & = & E[X^2 - 2\mu X +\mu^2]\\
+        & = & E(X^2) - 2\mu E(X) + \mu^2\\
+        & = & E(X^2) - \mu^2 = E(X^2) - (EX)^2\\
+    \end{eqnarray*}
+  \underline{Example}: Previous example, continued\\
+    $E(X^2) = 1^2 \times .2 + 2^2 \times .3 + 3^2 \times .5 = 6.7$\\
+    $Var(X) = 6.7 - (2.3)^2 = 1.49$\\
+    $\sigma(X) = \sqrt{Var(X)} = 1.19$\\\\
+  \underline{Example}: $X$ = number shown on a die\\
+    $E(X) = \frac{1}{6}(1 + 2 + \ldots + 6 = \frac{7}{2} = 3.5$\\
+    $EX^2 = \frac{1}{6}(1 + 2^2 + \ldots + 6^2) = \frac{91}{6} = 15.16$\\\\
+  \subsection*{Probability Mass functions}
+    \begin{enumerate}
+      \item Uniform
+      \begin{enumerate}
+        \item $P(X = X_1) = \frac{1}{n}$, where $i = 1, \ldots, n$. 
+        \item $EX = \frac{x_1 + \ldots x_n}{n}$
+      \end{enumerate}
+      \item Bernoulli: An indicator random variable. Assume $A$ is an event with
+        probability $p$. 
+      \begin{enumerate}
+        \item \underline{Indicator of A}: $I_A - X_A = 1_A =  
+          \begin{cases} 1 & \text{ if satisfied}\\ 0 & \text{ otherwise}
+          \end{cases}$. 
+        \item $E(I_A) = p$
+      \end{enumerate}
+      \item Binomial random variable: Number of successes in $n$ independent
+        trials, each of which is a success with probability $p$.
+      \begin{enumerate}
+        \item $X$ is $Binomial(n,p)$, so $P(X=i) = \binom{n}{i}p^i(1-p)^{n-i}$
+          where $i = 0, \ldots, n$.
+        \item $EX = np$
+        \item $Var(X) = np(1-p)$
+      \end{enumerate}
+      \item Poisson random variable. $X = Poisson(\lambda)$
+      \begin{enumerate}
+        \item $P(X = k) = \frac{\lambda^k}{k!} e^{-\lambda}$ where $k = 0, 1, 2,
+        \ldots$
+      \end{enumerate}
+    \end{enumerate}
+    \underline{Example}: Let $X$ = number of heads in 50 tosses of a fair 
+    coin.\\
+    $X$ is $Binomial(50, \frac{1}{2})$\\
+    $P(X \le 10) = \sum_{i = 0}^{10} \binom{10}{1} \frac{1}{2^{50}}$\\\\
+    \underline{Example}: Let $d$ = dominant genes and $r$ = recessive gene.\\
+      $dd$ is called the pure dominant gene, $dr$ is called hybrid, and $rr$
+      puure recessive recessive". $dd$ and $dr$ produces the quality of
+      dominant genes. $rr$ procues the quality of recessive genes.\\\\
+      Assume that both parents are hybrid and have $n$ children, what is $P(
+      \text{at least two will be $rr$})$?\\
+      Each child, independent, gets one of the genes at random from each 
+      parent.\\
+      $P(\text{pure recessive child}) = \frac{1}{4}$\\
+      $X$ is the number of $rr$ children.\\
+      $X = Binomial(n, \frac{1}{4})$\\
+      $P(X \ge 2) = 1 - P(X = 0) - P(X = 1) = 1 - (\frac{3}{4})^n - n\frac{1}{4}
+      (\frac{3}{4})^{n-1}$\\

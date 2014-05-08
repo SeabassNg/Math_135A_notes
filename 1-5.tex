@@ -1,0 +1,44 @@
+\section*{1/5}
+  \subsection*{Question}
+    I have a deck of cards and I want to distribute all 52 cards to 4 players 
+    equally. What is the probability that each player gets an Ace.
+  \subsection*{Answer}
+    $\binom{52}{4}$ for positions for 4 aces.\\
+    $13^4$ for positions to pick for first slot, second slot, third slot, and
+    fourth slot. \\
+    Therefore, it's $\frac{13^4}{\binom{52}{4}}$.
+
+  \subsection*{History of Probability}
+    \underline{1654}: Chevabu de Mere, Blasse Pascal.\\
+      Fair coin: H or T, with equal probability\\
+      Die: 1, 2, 3, 4, 5, 6 with equal probability\\
+      Shuffled deck of cards: Any ordering fo cards equally likely\\
+      In the letter between Chevabu de Mere and Balsse Pascal, de Mere
+      wants a 6 from 4 rolls of a die. According to de mere, of a fair die,
+      the probability of getting at least one 6 from 4 rolls of a die is
+      $4 * \frac{1}{6} = \frac{2}{3}$. De Mere won money on this. The 
+      probability of getting at least one double 6 in 24 rolls of a 
+      pair of dice is $24 * \frac{1}{36} = \frac{2}{3}$. De mere lost money
+      on this.\\
+      Why? He was WRONG! The logic is bad.  We'll come back to this later.
+
+  \subsection*{Question 2}
+    In a family with 4 children, what is the probability of a 2:2 boy:girl 
+    split.\\
+    \underline{Wrong Answers}: One guess: $\frac{1}{5}$, WRONG! 5 
+    possibilities for number of boys are not equally likely.\\
+    Another guess: Close to 1. They're almost equally likely. WRONG! This idea
+    shows the misunderstanding that probability = certainty. That is wrong.\\
+
+   \subsection*{Equally likely outcomes}
+    Suppose an experiment is performed, with $n$ possible outcomes. ASSUME also,
+    that each outcome are equally likely. (Whether this concept is realistic,
+    *shrug*. In Question 2, this was a bad assumption.) If an event $E$ ( = a
+    set of outcomes) consists of $m$ different outcomes ("good" outcomes for
+    $E$), then the probability of $E$, $P(E) = \frac{m}{n}$\\
+
+  \subsection*{Example}
+    Fair die has 6 outcomes, $E = \{ 2, 4, 6\}$, $P(E) = \frac{1}{2}$.\\
+    What does this mean? For arbitrary large number, N, of rolls, about half
+    of the outcomes will be even.
+

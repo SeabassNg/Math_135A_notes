@@ -1,0 +1,54 @@
+\section*{2/24 (Discussion)}
+  \subsection*{answer to Quiz 1}
+    $$
+      f(x) = \begin{cases} a + bx^2 & 0 \le x \le 1 \\ 0 & \text{otherwise}
+        \end{cases}
+    $$
+    By definition,
+    \begin{eqnarray*}
+      \int_0^1 ax + bx^3\,dx & = & 1\\ 
+      E(X) & = & \int_0^1 xf(x)\,dx\\
+      & = & \int_0^1 ax + bx^3\,dx \\
+      & = & \frac{3}{5}
+    \end{eqnarray*}
+
+  \subsection*{answer to Quiz 2}
+    Find pdf of $Y$.\\
+    $$
+      P(X \le x) = \int_0^x e^{-x}\,dx = 1 - e^{-x}
+    $$
+    Distribution function of $Y$\\
+    \begin{eqnarray*}
+      P(Y \le y) & = & P(logX \le y)\\
+      & = & P(X \le e^y)\\
+      & = & \int_0^{e^y} e^{-x}\,dx\\
+      & = & \int_0^y f_y(x)\,dx\\
+    \end{eqnarray*}
+    By the fundamental theorem of calculus, 
+    $$
+      f_Y(x) = \frac{d}{dy} \int_0^{e^y}e^{-x}\,dx = \frac{d}{dy}(1 - 
+      e^{(e^{y})^{-1}}) = -e^{-e^{y}} - (-e^{y})
+    $$
+  \subsection*{Homework 5.18}
+    Let $X$ be a normal random variable with $\mu = 5$.\\
+    If $P(X > 9) = .2$, approximately what is $Var(X)$?\\
+    For normal random variable, 
+    $$
+      P(X \le a)  =  P(\frac{X - \mu}{\sigma}) \le \frac{a- \mu}{\sigma}\\
+    $$
+    $$
+      P(X > 9) = 1 - P(X \le 9) = 1 - P(\frac{x - 5}{\sigma} \le \frac{4}
+      {\sigma}) = 1 - \Phi(\frac{4}{\sigma})
+    $$
+    Now, we need find $\Phi(\frac{4}{\sigma}) = .8$, so $\frac{4}{\sigma} 
+      \approx .84$. Therefore, 
+    $$
+      Var(X) = \sigma^2 = \left(\frac{4}{.84}\right)^2
+    $$
+  \subsection*{Laplace-De-Moire's Central Limit Theorem}
+    $$
+      P(a \le \frac{S_n - np}{\sqrt{np(1-p)}} \le b) \to \Phi(b) - \Phi(a)
+    $$
+    $S_n$ is the sample result of Bernoulli trials of size $n$. 
+    $\frac{S_n - np}{\sqrt{np(1-p)}}$ is rescaling it to normal just like 
+    usual normals.

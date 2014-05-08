@@ -1,0 +1,50 @@
+\section*{1/30}
+  \subsection*{Bernoulli trials}
+    $n$ indepdent experiments, success in each occurs with probability, $p$. 
+    (Failure is always with probability $1-p$).\\
+    Then, $P(\text{exactly $k$ successes}) = \binom{n}{k}p^k(1-p)^{n-k}$\\\\
+  \underline{Example}: A machine produces items which are independently 
+  defective with probability $p$.\\
+  \begin{enumerate}
+    \item Take 6 items. $P(\text{exactly two are defective}) = \binom{6}{2}
+      p^2(1-p)^4$
+    \item Take 6 items. $P(\text{at least one is defective}) = 1 - P(\text{
+      no defects})  = 1- (1 - p)^6$
+    \item $P(\text{at least 2 defective}) = 1 - (1 - p)^6 - 6p(1-p)^5$
+    \item $P(\text{exactly 100 items are made before 6 defective are found})\\
+      = P(\text{100th item defective, exactly 5 items among 1st 99}) 
+      = p \times \binom{99}{5}p^5 (1 - p)^{99}$
+  \end{enumerate}
+
+  \subsection*{Problem of points}
+    We have independent trials with success with probability $p$.
+    \begin{enumerate}
+      \item $P(\text{$n$ successes occur before $m$ failures}) = 
+      P(\text{in first $m+m-1$ trials, the number of successes is $\ge n$}) = 
+      \sum_{k = n}^{n + m - 1} \binom{n+m-1}{k} p^k (1-p)^{n + m - 1 - k}$
+    \end{enumerate}
+    \underline{Example}: "Best of 7".\\
+      Team $A$ loses 1st game. (Assume Bernoulli trials with probability of
+      $\frac{1}{2}$). Now,\\
+      $P(\text{$A$ wins the series}) = P(4 successs before 3 failures) = 
+      \sum_{k = 4}^6 \binom{6}{k} p^k(1-p)^{6-k} = \frac{1}{2}$\\
+    \underline{Other notes}:\\
+      $p_{n,m} = P(\text{$n$ successful before $m$ failures}) = P(\text{ first
+        try and success})P(\text{$n-1$ success before $m$ fails}) + P(\text{
+        first try is failure})P(\text{$n$ success before $m - 1$ fails}) = 
+      pp_{n-1,m} +(1-p)p_{n, m-1}$\\
+    \underline{Example}: $n$ birthdays and $k$ people.\\
+      $p_{m, k} = P(\text{exactly $m$ days are not represented among the $n$
+      birthdays})$?\\
+    \underline{Notes}: $P(\text{$k = 0$ and $m$ be anything except $n$}) = 0$\\
+    $P(\text{$m = n$ and $k = 0$}) = 1$\\
+    $P(\text{$m = n$ and $k >0$}) = 0$.\\
+    $p_{m,k} = p_{m, k-1}\frac{n-m}{n} + p_{m+1, k-1} \frac{m+1}{n}$\\\\
+  \underline{Example}: Each day, you decide with probability, $p$, independently
+    to flip a fair coin. Otherwise, do nothing. \\
+    $P(\text{get exactly 10 heads in first 
+      20 days}) = \binom{20}{10} (\frac{p}{2})^{10}(1-\frac{p}{2})^{10}$\\
+    $P(\text{10 heads before 5 tails}) = (\text{just did disregard the days 
+    where you don't flip}) \sum_{k= 10}^{14} (\binom{14}{k})\frac{1}{2^{14}}$
+
+

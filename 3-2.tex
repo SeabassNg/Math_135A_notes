@@ -1,0 +1,79 @@
+\section*{3/2}
+  \subsection*{Conditional distributions}
+    Discrete cases:
+    $$
+      p_{x|y}(x|y) = P(X=x | Y=y) = \frac{P(X=x,Y=y)}{P(Y=y)}
+    $$
+    Continuous cases:
+    $$
+      f_{x|y}(x|y) = \frac{f(x,y)}{f_Y(y)}
+    $$
+    The latter is a trivial formula since numerator and denominator is always
+    0 if the denominator is $0$.
+    It should be:
+    \begin{eqnarray*}
+      f_{x|y}(x|y) &=& \frac{P(X = x+dx, Y=y+dy)}{P(Y=y + dy)}\\
+        & = & \frac{f(x,y)\,dx\,dy}{f_Y(y)dy)}\\
+        & = & \frac{f(x,y)}{f_Y(y)}dx\\
+        & \approx & P(X = x + dx| Y = y + dy)
+    \end{eqnarray*}
+    \underline{Example}: Let $(x,y)$ be a random point on the isosceles triangle
+      of sides, 1.\\
+      $f(x,y) = 2$ on the triangle.\\
+      Compute $f_{x|y}(x|y)$.\\
+      Let's say I give you $y$, then you know that $x$ is between 0 and $1-y$.\\
+      \begin{eqnarray*}
+        f_Y(y) & = & \int_{0} ^{1-y} 2\,dx\\
+          & = & 2(1-y)
+      \end{eqnarray*}
+      where $y \in [0,1]$\\
+      $$
+        f_{x|y}(x|y) = \begin{cases}\frac{2}{2(1-y)} & 0 \le x \le 1 - y\\
+        0 & \text{otherwise}\end{cases}
+      $$
+    \underline{Example}: Suppose
+    $$
+      f(x,y) = \begin{cases} \frac{21}{4}x^2y & x^2 \le y \le 1\\ 
+      0 &\text{otherwise}\end{cases}
+    $$
+    Compute $f_{x|y}(x,y)$\\
+    $$
+      f_Y(y) = \frac{21}{4} y\int_{-\sqrt{y}}^{\sqrt{y}} x^2\,dx = \frac{7}{2}
+      y^{\frac{5}{2}}
+    $$
+    where $y \in [0,1]$\\
+    $$
+      f_{x|y}(x|y) = \frac{\frac{21}{4}x^2y}{\frac{7}{2}y^{5/2}} = \frac{3}{2}
+        x^2y^{-3/2}
+    $$
+    where $-\sqrt{y} \le x \le \sqrt{y}$\\\\
+    How about $P(X \ge Y | Y = y)$? Normally, this makes no sense because
+    we're given something that has probability, 0. This is interpreted as
+    $$
+      \int_y^{\sqrt{y}} \frac{3}{2}x^2y^{-3/2}\,dx = \int_y^{\sqrt{y}} f_{X|Y}
+      (x|y)\,dx
+    $$\\\\
+  $$
+    EX = \begin{cases} \sum_i x_i p(x_i) & \text{where $X$ is a discerete with probability, $p$}.\\ \int_{-\infty}^{\infty}xf(x)\,dx & \text{where $X$ is continuous with density, $f$}\end{cases}\\
+  $$
+  $$
+    Eg(X) = \begin{cases} \sum_i g(x_i) p(x_i) & \text{where $X$ is a discerete with probability, $p$}.\\ \int_{-\infty}^{\infty} g(x)f(x)\,dx & \text{where $X$ is continuous with density, $f$}\end{cases}
+  $$
+  If we have $(X,Y)$, then
+  $$
+    Eg(X) = \begin{cases} \sum_{x,y} g(x,y) P(X=x, Y=y) & \text{where $X$ is a discerete with probability, $p$}.\\ \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} g(x,y)f(x,y)\,dx\,dy & \text{where $X$ is continuous with density, $f$}\end{cases}
+  $$
+  \underline{Example}: Roll two dice, with $X$ being the number on the 1st die
+    and $Y$ be the number on the 2nd die.\\
+    Let $Z$ be the difference between $X$ and $Y$.\\
+    Compute $P(Z = i)$ where $i = 0, 1, 2, 3, 4, 5$\\
+    Then, $$
+      E|X - y| = \sum_{i = 1}^6 \sum_{i = 1}^6 |i - j| \frac{1}{36}
+    $$\\
+    Alternatively,
+    $$
+      EZ = \sum_{k = 0}^5 kP(Z = k)
+    $$
+    \underline{Example}: Choose a random point, $(x,y)$ on the right half of 
+    the unit circle. Compute EX.\\
+

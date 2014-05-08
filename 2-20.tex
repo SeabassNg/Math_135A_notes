@@ -1,0 +1,74 @@
+\section*{2/20}
+  \subsection*{De Moire-Laplace Central Limit Theorem}
+    Let $S_n$ br $Binomial(n,p)$ where $p$ is fixed and $n$ is large.\\
+    Then, $\frac{S_n - np}{\sqrt{np(1-p)}} \approx N(0,1)$\\
+    The condition for using this is $np(1-p) \ge 10$.\\
+    This is analytical statement:
+    $\sum_k \binom{n}{k}p^k(1-p)^{n-k}\frac{k - np}{\sqrt{np(1-p)}} \le
+    x$.\\
+    As $x \to \infty$, $\frac{1}{\sqrt{2\pi}} \int_{-\infty}^x e^{-\frac{s^2}
+    {2}}\,ds$ for every $x \in \mathbb{R}$.\\
+    In connection with normal curves: the generalized function is equivalent is
+    $P(\frac{S_n - np}{\sqrt{np(1-p)}} \le x)$ and as $x \to \infty$,
+    it's equivalent to $P(z \le x)$.\\
+    \underline{Note}: Interesting enough, The maximum of a Binomial probability
+    mass function is $np$.\\\\
+    \underline{Note}: When, say $n = 100$ and $p = \frac{1}{100}$ is a better
+    approximation for $S_n$ is Poisson with $\lambda = 1$.\\\\
+    \underline{Example}: Roulette wheel has 38 slots, 18 red, 18 black, and
+      2 green. A ball ends at one of these at random.\\
+      Let's say you're a player who bet \$1 on every game on red.\\
+      If you win, you get a \$1. If you lose, you lose a \$1.
+      After $n$ games, what is the probability that you are ahead for $n = 100$
+      and $n = 1000$?\\
+      Let $S_n$ be the number of times you win is a $Binomial(n, \frac{18}
+      {38} = \frac{9}{19})$.\\
+      \begin{eqnarray*}
+        P(\text{ahead}) & = & P(\text{win more than half of the games})\\
+          & = & P\left(S_n > \frac{n}{2}\right)\\
+          & = & P\left(\frac{s_ - np}{\sqrt{np(1-p)}} > \frac{\frac{1}{2}n -
+            np}{\sqrt{np(1-p)}}\right)\\
+          & \approx & P\left(Z > \frac{(\frac{1}{2} - p)\sqrt{n}}
+          {\sqrt{p(1-p)}}\right)
+      \end{eqnarray*}
+      For $n = 100$, $P(Z > \frac{t}{\sqrt{90}}) \approx 30 \%$\\
+      For $n = 1000$, $P(Z > \frac{5}{3}) \approx 4.8 \%$\\
+      What if $p = \frac{1}{2}$?\\
+      $P(\text{ahead}) \to_{n \to \infty} P(z > 0) = .5$\\\\
+    \underline{Example}: How many times do you need to toss a fair coin to get
+      100 heads with probability 90\%?\\
+      Let $n$ be the number of tosses that we're looking for.\\
+      Let $S_n$ be $Binomial(n, \frac{1}{2})$.\\
+      \begin{eqnarray*}
+        P(S_n \ge 100) & = & .9\\
+        P\left(\frac{S_n - \frac{1}{2}n}{\sqrt{n\frac{1}{4}}} \ge \frac{100 - 
+         \frac{1}{2}n}{\frac{1}{2}\sqrt{n}}\right) & = &\\
+        P\left(z \ge \frac{100 - \frac{1}{2}n}{\frac{1}{2}\sqrt{n}}\right) & \approx &\\
+        P\left(z \ge \frac{200 - n}{\sqrt{n}}\right) & \approx & \\
+        P\left(z \ge -\left(\frac{n - 200}{\sqrt{n}}\right) \right) & \approx & \\
+        P\left(z \ge - \left(\frac{n-200}{\sqrt{n}}\right)\right) & \approx &\\
+        \Phi(\frac{n - 200}{\sqrt{n}}) & \approx & .9\\
+      \end{eqnarray*}
+      According to the tables, $\Phi(1.28) \approx .9$\\
+      Solve $\frac{n - 200}{\sqrt{n}} = 1.28$.\\
+      We know that $n - 1.28\sqrt{n} - 200 = 0$\\
+      $\sqrt{n} = \frac{1.28 + \sqrt{1.28^2 + 800}}{2}$\\
+      So, $n = 219$.\\
+  \subsection*{6 Joint distributions}
+    \subsubsection*{Discrete Cases}
+      Two discrete random variables, $X$ and $Y$.\\
+      Their joint probability mass function.\\
+      $P(x,y) = P(X = x, Y = y)$\\
+      $P((X,Y) \in A) = \sum_{(X,Y) \in A} P(x,y)$\\\\
+      The Marginal probability mass function:\\
+      $P(X = x) = \sum_y P(X=x, Y=y) = \sum_y p(x,y)$\\
+      $P(Y = y) = \sum_x P(X=x, Y=y) = \sum_x p(x,y)$\\\\
+    \underline{Example}: An urn contains 2 red, 5 white, and 3 green balls.\\
+      Select 3 balls at random.\\
+      $X = $ number of red balls selected.\\
+      $Y = $ number of white balls selected.\\
+      \begin{enumerate}
+        \item Compute joint probability mass function of $(X,Y)$
+        \item Marginal probability mass functions
+        \item $P(X \ge Y)$
+      \end{enumerate}

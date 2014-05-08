@@ -1,0 +1,67 @@
+\section*{2/13}
+  \underline{Example}: $X$ has density $f_X(x) = \begin{cases} 3x^2 & x \in
+  [0, 1] \\ 0 & \text{otherwise} \end{cases}$\\
+  Compute density of $Y = 1 - x^4$.\\
+  To start off problems like this, compute the distribution function of 
+  $Y$.\\
+  $F_Y(y) = P(Y \le y) = P(1 - x^4 \le y) = P(1 - y \le x^4) = *$\\
+  $y \in [0, 1]$ because $Y$ only has values on $[0, 1]$.\\
+  $* = P(1 - y)^{\frac{1}{4}} \le X) = \int_{{1 - y)^{\frac{1}{4}}}}^1 
+  3x^2\,dx$\\
+  So, $f_Y(y) = \frac{d}{dy} F_Y(y) = -3 ((1 - y)^{\frac{1}{4}})^2 \frac{1}{4}
+  (1 - y)^{\frac{-3}{4}}(-1) = \frac{3}{4} \frac{1}{(1 - y)^{\frac{1}{4}}}$ 
+  where $y \in (0,1)$.\\
+  \subsection*{Uniform random variable}
+    Choosing a random number on $[\alpha, \beta]$"
+    $f(x) = \begin{cases} \frac{1}{\beta - \alpha} & x \in [\alpha, \beta]\\
+    0 & \text{otherwise} \end{cases}$\\
+    This is ideally the output of a call of a random number generator.\\
+    If $X$ is uniform on $[\alpha, \beta]$\\
+    $EX = \frac{\alpha + \beta}{2}$\\
+    $Var(X) = \frac{(\beta - \alpha)^2}{12}$\\
+    $X$ is uniform on $[0,1]$.\\
+    $P(X \in \mathbb{Q}) = 0$\\
+    Proof: $P(X \in \mathbb{Q}) = P(\bigcup_i \{X = q_i\}) = \sum_i 
+    P(x = q_i) = 0$.
+    This is only true for countable sets.\\\\
+    Binary expansion of uniform random variable on $[0, 1]$. For example,
+    $0.010$ refers to a number between $\frac{1}{4}$ to $\frac{3}{8}$ since
+    it is left of $\frac{1}{2}$, right of $\frac{1}{4}$ and left of 
+    $\frac{3}{8}$.\\
+    Any first three digits of a primary expansion of $X$.\\
+    The binary digits of $X$ use the result of an infinite sequence of 
+    independent fair coin tosses.\\
+    $P(\text{periodic sequence}) = 0$ because eventually, the periodic sequence
+    will break.\\
+    Because of this, the decimal does not repeat, meaning the $P(x \in 
+    \mathbb{Q}) = 0$.\\
+    \underline{Example}: A uniform random number $X$ divides $[0,1]$ into two 
+    subintervals. Let $R$ be the ratio of smaller versus larger segment.\\
+    Compute the density of $R$.\\
+    The possible value of $r$ is $(0,1)$ since they can be broken up equally
+    to one person takes the entire stick.
+    \begin{eqnarray*}
+    F_R(r) 
+    & = & P(R \le r)= P(X \le \frac{1}{2}, \frac{x}{1 - x} \le r) +
+      P(X > \frac{1}{2}, \frac{1 - x}{x} \le r)\\
+    & = & P(X \le \frac{1}{2}, X \le \frac{r}{r-1}) + P(X > \frac{1}{2}, X 
+      \ge \frac{1}{r+1})\\
+    & = & P(X \le \frac{r}{r+1}) + P(X \ge \frac{1}{r+1}) \text{[We know that 
+      $\frac{r}{r+1} \le \frac{1}{2}$ and $\frac{1}{r+1} \ge \frac{1}{2}$]}\\
+    & = & \frac{r}{r+1} + 1 - \frac{1}{r+1} = \frac{2r}{r+1}
+    \end{eqnarray*}
+
+  \subsection*{Exponential random variable}
+    We have a pararmeter, $\lambda > 0$\\
+    $f(x) = \begin{cases} \lambda e^{-\lambda x} & \text{if } x \ge 0\\
+    0 & \text{if } x < 0\end{cases}$\\
+    $P(X \ge x) = \int_x^{\infty} \lambda e^{-\lambda s}\,dx = e^{-\lambda x}$\\
+    $P(X \ge x+y| X \ge y) = \frac{e^{-\lambda(x+y)}}{e^{-\lambda y}} = 
+    -e^{-\lambda x}$.("Memoryless property": How long you have waited
+    does not matter! The probability is still the same no matter how long
+    you waited.)\\\\
+    \underline{Example}: Assume that a lightbulbs last on average 100 hours.\\
+      Assuming exponential distribution and $\lambda{1}{100}$.\\
+      $P(\text{lasts } \ge 200 \text{ hours}) = e^{-2} \approx .135$\\
+      $P(\text{lasts } \le 50 \text{ hours}) = 1 - e^{-\frac{1}{2}} \approx 
+       0.3935$\\

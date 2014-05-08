@@ -1,0 +1,34 @@
+\section*{1/9}
+  $n$ objects. The number of ways to fill $n$ ordered slots with them is
+  $n(n-1)\ldots 2*1$\\
+  the number of ways to fill $k \le n$ slots is $n(n-1)\ldots (n-1+1) =
+  \frac{n!}{(n-k)!}$\\
+  \underline{Example}: Shuffle a deck of cards\\
+  \begin{enumerate}
+    \item $P(\text{top card is an Ace}) = \frac{1}{13} = \frac{4 * 51!}{52!}$
+    \item $P(\text{all card of the same suit end up stuck together}) = 
+    \frac{4! * (13!)^4}{52!}$
+    \item $P(\text{hearts are together}) = \frac{40!13!}{52!}$
+  \end{enumerate}
+  \underline{Example}: A bag has 6 pieces of paper with letters, E, E, P, P, P,
+  and R, on them. Pull 6 papers blindly out of the bag (1) without, (2) with
+  replacement. What is the probability that these pieces in order, spell
+  PEPPER?\\
+  \begin{enumerate}
+    \item Outcome = ordering of pieces of paper. $E_1E_2P_1P_2P_3R$. The
+    number of outcomes is $6!$. The number of good outcomes is $3!2!$. The
+    probaility is $\frac{3!2!}{6!}$.
+    \item $\frac{3^32^2}{6^6}$
+  \end{enumerate}
+  \underline{Example}: $6$ men and $6$ women sit (1) on a row (2) around a table,
+  at random. $P(\text{all women sit together})$
+  \begin{enumerate}
+    \item $\frac{4!6!}{12!}$
+    \item $\frac{6!6!}{11!}$
+  \end{enumerate}
+  \underline{Example}: We have 2 Norwegians, 3 Swedes, and 4 Finns. What is the
+  probability of all groups end up sitting together with their own group?\\
+  Probability is $\frac{2*2*4!*3!}{8!}$. Fix a Norwegian. 2 choices for picking
+  a place where the 2nd Norwegian sits. 4! choices for arranging the Finns.
+  3! choices for arranging the Swedes. 2 choices to pick which blocks are
+  to the left of Norwegian.

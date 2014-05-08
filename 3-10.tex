@@ -1,0 +1,54 @@
+\section*{3/10 (discussion)}
+  \subsection*{HW 6.42}
+    $$
+      f(x,y) = xe^{-x(y+1)}
+    $$
+    for $x > 0$, $y > 0$.\\\\
+    a) 
+    \begin{eqnarray*}
+      P(X \le x | Y = y) & = & \frac{P(X \le x, Y = y)}{P(Y = y)}\\
+      P(Y = y) & = & \int_0^{\infty} f(x,y)\,dx\\
+      & = & \int_0^{\infty} \frac{1}{(y+1)^2}\\
+      P(X \le x, Y = y) & = & \int_0^{\infty}xe^{-x(y+1)}\,dx\\
+      & = & - \frac{x}{y+1} e^{-x(y+1)} + \frac{1}{(y+1)^2} - \frac{e^{-x(y+1)}
+      }{(y+1)^2}\\
+      P(X \le x | Y = y) & = & 1 - ((y+1)x + 1) e^{-x(y+1)}\\
+    \end{eqnarray*}
+    Therefore, $f(x) = (y+1)^2 xe^{-x(y+1)}$.\\
+    b)
+    \begin{eqnarray*}
+      P(XY \le z) & = & \int\int_{XY \le z} xe^{-x(y+1)} \,dxdy\\
+      & = & \int\int xe^{-x(y+1)}\,dydx\\
+      & = & \int_0^{\infty} \int_0^{\frac{z}{x}} xe^{-x(y+1)}\,dydx\\
+      & = & \int_0^{\infty} e^{-x(y+1)} |_0^{\frac{z}{x}} \,dx \\
+      & = & \int_0^{\infty} e^{-x} - e^{-z - x}\,dx \\
+      & = & 1 - e^{-z}\\
+      f_Z(z) & = & \frac{d}{dy} P(Z \le z)\\
+      & = & e^{-z}
+    \end{eqnarray*}
+
+  \subsection*{HW 6.45}
+    $X_1$, $X_2$, $X_3$ are uniformly distributed over $[0,1]$.\\
+    \begin{eqnarray*}
+      P(X_3 \ge X_1 + X_2) & = & \int\int_{X_3 \ge X_1 + X_2}
+        f_{X_1, X_2, X_3}(x,y,z)\,dxdydz\\
+      & = & \int_0^1 \int_0^{1-y}\int_{x + y}^1 \,dzdxdy\\
+      & = & \int_0^1 \int_0^{1-y} 1 - (x+y)\,dx\,dy\\
+      & = & \int_0^1 (x - \frac{x^2}{2} - xy)|_0^{1 - y} \,dy\\
+      & = & \int_0^1 ((1-y) - \frac{1 - 2y + y^2}{2} - y + y^2)\,dy\\
+      & = & \int_0^1 \frac{2 - 4y + 2y^2 - 1 + 2y - y^2}{2} \,dy\\
+      & = & \int_0^1 \frac{1 - 2y + y^2}{2}\,dy\\
+      & = & \frac{1}{2} (y - y^2 + \frac{y^3}{3}) |_0^1\\
+      & = & \frac{1}{2} (1 - 1 + \frac{1}{3})\\
+      & = & \frac{1}{6}
+    \end{eqnarray*}
+
+  \subsection*{HW 6.49}
+    Let $X_1, \ldots, X_5$ be independently identically distributed on
+    exponential with $\lambda$.\\
+    \begin{eqnarray*}
+      P(min(X_1, \ldots, X_5) \le a) & = & 1 - P(min(X_1, \ldots, X_5) > a)\\
+        & = & 1 - P(X_1 > a, X_2 > a, \ldots, X_5 > a)\\
+        & = & 1 - \int_a^{\infty} \ldots \int_a^{\infty} -\lambda e^{-\lambda}
+        dX_1\ldots dX_5
+    \end{eqnarray*}

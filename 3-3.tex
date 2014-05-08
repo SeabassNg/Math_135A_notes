@@ -1,0 +1,99 @@
+\section*{3/3(Discussion)}
+  \subsection*{Discrete Random Variables}
+  \begin{enumerate}
+    \item Bernoulli Random Variables
+    $$
+      P(X= 0) = 1 - p
+    $$
+    $$
+      P(X = 1) = p
+    $$
+    $$
+      E(X) = p
+    $$
+    $$
+      Var(X) = E(X^2) - (E(X))^2 = p(1-p)
+    $$
+    \item Binomial Random Variable
+    $$
+      X = X_1 + \ldots + X_n
+    $$
+    Basically, the sum of Bernoulli variables
+    $$
+      P(X = i) = \binom{n}{i} p^i(1-p)^{n-i}
+    $$
+    $$
+      E(X) = np
+    $$
+    $$
+      Var(X) = np(1 - p)
+    $$
+    \item Poisson random variables
+    $$
+      P(X = i) = e^{-\lambda}\frac{\lambda^i}{i!}
+    $$
+    It's good approximation to Binomial when $\lambda = np$ with $n$ being
+    large and $p$ is small.
+    $$
+      E(X) = \lambda
+    $$
+    $$
+      Var(X) = \lambda
+    $$
+    \item Geometric Random Variable
+    $$
+      P(X = n) = (1-p)^{n-1}p
+    $$
+    where $n \in \{1, 2, 3, \ldots \}$.\\
+    Models waiting time till first sucess.
+    $$
+      E(X) = \frac{1}{p}
+    $$
+    $$
+      Var(X) = \frac{1-p}{p^2}
+    $$
+  \end{enumerate}
+
+  \subsection*{Continuous Random variables}
+    The whole idea is to calculate $P(X \le B) = \int_B f_X(x)\,dx$ where
+    $f_X(x)$ is the probability density function.
+  \begin{enumerate}
+    \item Uniform Random Variable
+    $$
+      f(X) = \begin{cases} \frac{1}{\beta - \alpha} & \alpha \le x \le
+      \beta\\ 0 & \text{otherwise}\end{cases}
+    $$
+    $$
+      E(X) = \frac{\alpha + \beta}{2}
+    $$
+    $$
+      Var(X) = \frac{(\beta - \alpha)^2}{12}
+    $$
+    \item Normal Random Variable
+    $$
+      f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-(x - \mu)^2/ \sigma^2}
+    $$
+    $$
+      E(X) = \mu
+    $$
+    $$
+      Var(X) = \sigma^2
+    $$
+    \item Exponential Random Variable
+      $$
+        f(X) = \begin{cases} \lambda e^{-\lambda x} & x \ge 0\\
+          0 & \text{otherwise}\end{cases}
+      $$
+      $$
+        E(X) = \mu
+      $$
+      $$
+        Var(X) = \sigma^2
+      $$
+      Suppos we have two independent random variabes, $X,Y$ both of which
+      are continuous.\\
+      Then, $$
+        \int\int_{C \in \mathbb{R}^2} f_{x,y}\,dx\,dy = P((X,Y) \in C)
+      $$
+      Since $X, Y$ are independent, $f_{XY}(x,y) = f_X(x) f_Y(y)$.
+  \end{enumerate}

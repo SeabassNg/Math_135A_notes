@@ -1,0 +1,77 @@
+\section*{1/12}
+  Let ${\binom{n}{r}}$ be the number of choices of a subset with $r$ elements
+  from a set with $n$ elements. Then, 
+  \begin{eqnarray*}
+  \binom{n}{r} r! &=& n(n-1)\ldots (n-r+1)\\
+  \binom{n}{r} &=& \frac{n(n-1)\ldots (n-r+1)}{r!}\\
+  &=& \frac{n!}{r!(n-r)!}\\
+  \end{eqnarray*}
+  \underline{Note}: $\binom{n}{0} = 1$ and $\binom{n}{r} = \binom{n}{n-r}$\\
+  $\binom{n}{r}$ = "$n$ choose $r$"\\\\
+  More generally, the number of ways to choose a set of $n$ elements into $r$
+  groups of $n_1, n_2, \ldots, n_r$ elements where $n_1 + \ldots + n_r = n$ is 
+  \begin{eqnarray*}
+    \binom{n}{n_1}\binom{n - n_1}{n_2}\binom{n-n_1-n_2}{n_3} \ldots 
+    \binom{n-n_1-\ldots - n_{r-1}}{n_r} & = & \frac{n!}{n_1!n_2!\ldots n_r!}\\
+    & = & \binom{n}{n_1\ldots n_r}
+  \end{eqnarray*}
+  \underline{Example}: A fair coin is tossed 10 times.\\
+  $P(\text{exactly 5 heads}) = \frac{\binom{10}{5}}{2^{10}} \approx 0.246$\\\\
+  \underline{Example}: We have a bag that contains 100 balls, with 50 red and 50
+  blue. Select 5 balls at random. What is the probability that 3 are blue and
+  2 are red?\\
+  $P(\text{3 are blue and 2 are red}) = \frac{\binom{50}{3}\binom{50}{2}}
+  {\binom{100}{5}} \approx .319 $\\
+  Why should it be less than half? The probability that 3 are blue and 2 are red
+  is equal to the probability of 3 are red and 2 are blue, so if it's greater than
+  half, it's nonsense since both add to over 1. It cannot be half either because
+  there is a probability greater than 0 for other choices.\\\\
+  \underline{Example}: We have 52 cards from a standard deck. We shuffle them
+  and dealt them to 4 players.\\\\
+  $P(\text{each has an ace}) $?\\
+  Way 1:
+  \begin{enumerate}
+    \item 52! total choices
+    \item Let first 13 cards go to the first player, second 13 cards to the second
+      player, etc... Pick a spot with each of the 13 slots for the ace to be in. 
+      There are $13^4$ possibility to where each ace resides.
+    \item Putting the aces into those positions are $4!$ since there are four
+      different aces
+    \item Ordering the rest of the cards, $48!$ ways.
+  \end{enumerate}
+  The probability is then $\frac{13^44!48!}{52!}$\\\\
+  Way 2:
+  \begin{enumerate}
+    \item Outcomes = positions of 4 A's.
+    \item Total outcomes = $\binom{52}{4}$. Pick four aces from 52.
+    \item The number of ways to order the A's, $13^4$
+  \end{enumerate}
+  The probability is then $\frac{13^4}{\binom{52}{4}}$\\\\
+  $P(\text{one person has all four aces})$?\\
+  \begin{enumerate}
+    \item total outcomes = $\binom{52}{4}$
+    \item Pick one player $\binom{4}{1}$
+    \item Pick four slots for aces for that player $\binom{13}{4}$
+  \end{enumerate}
+  The probability is then $\frac{\binom{4}{1}\binom{13}{4}}{\binom{52}{4}}$\\\\
+  \underline{Example}: Roll a die 12 times.\\
+  $P(\text{each number appears exactly two times})$?\\
+  \begin{enumerate}
+    \item Total outcomes $6^{12}$
+    \item Pick two for 1, pick two for 2, etc... $\binom{12}{2}\binom{10}{2}\ldots
+      \binom{2}{2}$
+  \end{enumerate}
+  The probability is then $\frac{\binom{12}{2}\binom{10}{2}\ldots\binom{2}{2}}
+  {6^{12}}$\\\\
+  $P(\text{1 appears exactly 3 times, 2 appears exactly 2 times})$?\\
+  \begin{enumerate}
+    \item total outcomes, $6^{12}$
+    \item Pick three buckets for 1 and 2 for 2 and 7 for any number other than 1.
+      $\binom{12}{3}\binom{9}{2}4^7$
+  \end{enumerate}
+  The probability is then $\frac{\binom{12}{3}\binom{9}{2}4^7}{6^{12}}$\\\\
+  \underline{Example}:
+    We have 14 rooms with 4 colors, w, b, g, y. Let's paint each room at random.\\
+    $P(\text{ 5w, 4b, 3g, 2y}) = \frac{\binom{14}{5}\binom{9}{4}\binom{5}{3}
+    \binom{2}{2}}{4^14}$
+

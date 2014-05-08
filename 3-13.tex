@@ -1,0 +1,86 @@
+\section*{3/13}
+  Meaning of the statement, "probability of an event $A$ is $p$". If you repeat
+  the experiment, independently, a large number of times, the proportion of
+  times, $A$ happens converges to $p$.\\
+  More generally,
+  \begin{theorem}
+    If $X_1, X_2, \ldots$ are independent and identically distributed random 
+    variables, then $\frac{X_1 + \ldots + X_n}{n}$ converges to $EX$ in the 
+    sense that 
+    $$
+      P\left(\left|\frac{X_1 + \ldots + X_n}{n} - EX\right| \ge \epsilon\right) = \ldots
+    $$
+  \end{theorem}
+  In particular, if $S_n$ is $Binomial(n,p) = I_1 + \ldots + I_n$, where
+  $I_i = I\{\text{success at trial}\}$\\
+  So,
+  $$
+    P\left(\left|\frac{S_n}{n} - p\right| \ge \epsilon\right) \to_{n \to \infty}
+    0
+  $$
+  This is called the \underline{weak law of Large Numbers}.\\\\
+  \begin{theorem}[Markov Inequality]
+    If $X \ge 0$ is a random variable,
+    $$
+      P(X \ge a) \le \frac{1}{a} EX
+    $$
+  \end{theorem}
+  \noindent\underline{Example}: If $EX = 1$ and $X >0$, $P(X \ge 10) \le 0.1$.\\
+  \begin{proof}
+    $$
+      I\{X \ge a\} \le \frac{1}{a} X
+    $$
+    so
+    $$
+      P(X \ge a) = E(I\{X \ge a\}) \le \frac{1}{a} EX
+    $$
+  \end{proof}
+  \begin{theorem}[Chebyshev's inequality]
+    If $EX = \mu$, $Var X = \sigma^2$ are both finite,
+    $$
+      P(| X - \mu| \ge k) \le \frac{\sigma^2}{k^2}
+    $$
+  \end{theorem}
+  \noindent \underline{Example}: If $EX = 1$, $VarX = .1$,
+  $$
+    P(|X - 1| \ge .5) \le \frac{.1}{.5^2} = \frac{2}{5}
+  $$
+  This is only useful if $\sigma$ is really small and $k$ is really big.
+  \begin{proof}
+    \begin{eqnarray*}
+      P((x - \mu)^2 \ge k^2) & \le & \frac{1}{k^2} E[(X - \mu)^2]\\
+    \end{eqnarray*}
+  \end{proof}
+  \begin{proof}
+    Proof of the Central Limit Theorem:\\
+    \begin{eqnarray*}
+      \mu & = & EX\\
+      \text{Let } Y_n & = & X_1 + \ldots + X_n\\
+      EY_n & = & EX_1 + \ldots + EX_n\\
+      & = & n\mu \\
+      Var Y_n & = & n \sigma^2\\
+      P(|X_1 + \ldots + X_n - n\mu| \ge n\epsilon) 
+      & \le & \frac{n\sigma^2}{n^2\epsilon^2}\\
+      & = & \frac{\sigma^2}{n \epsilon^2} \to 0
+    \end{eqnarray*}
+  \end{proof}
+  \underline{Remark}: $\frac{X_1 + \ldots + X_n}{n}$ converges to $EX$ at
+  the rate of about $\frac{1}{\sqrt{n}}$.\\\\
+  Does $\frac{X_1 + \ldots + X_n - \mu \cdot n}{n}$ converges? Yes\\
+  \begin{theorem}[Central limit theorem]
+    $X, X_1, X_2, \ldots$ are independent, identically distributed. Let $\mu =
+    EX$, $\sigma^2 = Var(X)$.\\
+    $$
+      P\left(\frac{X_1 + \ldots + X_n - \mu \cdot n}{\sigma\sqrt{n}} \le a
+      \right) \to_{n \to \infty} P(Z \le a)
+    $$
+    where $Z$ follows the normal distribution.
+  \end{theorem}
+  \noindent\underline{Example}: $X_n$ are independently uniform on $[0,1]$\\
+  Let $S_n = X_1 + \ldots + X_n$.
+  \begin{enumerate}
+    \item Compute approximately $P(S_{200} \le 90)$
+    \item Find $n$ so that $P(S_n \ge 50) \ge .99$.
+  \end{enumerate}
+  Part 1) $EX_n = \frac{1}{2}$\\
+  $Var X_n = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}$.

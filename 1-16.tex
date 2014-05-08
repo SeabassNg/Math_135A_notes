@@ -1,0 +1,47 @@
+\section*{1/16}
+  \underline{Example}: 3 married couples. Take seats around a table at random.
+  we want to figure out $P(\text{no wife sits next to their husband})$.\\
+  First compute the complement, but unions are hard compute, so we can compute
+  this instead:
+  $1 - (P(A_1) + P(A_2) + P(A_3) - P(A_1 \bigcap A_2) - P(A_1 \bigcap A_3) - 
+  P(A_2 \bigcap A_3) + P(A_1 \bigcap A_2 \bigcap A_3)$ where $A_i = \{ 
+  \text{wife$_i$ and husband$_i$ sit together}\}$\\
+  $P(A_1) = \frac{2}{5} = P(A_2) = P(A_3)$\\
+  $P(A_1 \bigcap A_2) = P(A_1 \bigcap A_3) = P(A_2 \bigcap A_3) = \frac{2 * 2 * 3!}{5!} = \frac{1}{5}$.\\
+  Fix husband 1. 2 places for wife to be. 3! ways of picking where second couple
+  sits. 2 ways to vary the couples.
+  $P(A_1 \bigcap A_2 \bigcap A_3) = \frac{2 * 2! * 2^2}{5!}$\\
+  Our answer is $\frac{4}{15}$\\\\
+  \underline{Example}: Birthday Problem\\
+  $n$ possible birthdays, sample $k$ times with replacement.\\
+  $P(\text{at least 2 people share a birthday}) = 1 - 
+  P(\text{no shared birthdays}) = 1 - \frac{n*(n-1)\ldots (n-k+1)}{n^k}$\\
+  \underline{Example(Massachusetts lottery)}: $n = 10,000$, $k = 660$\\
+  Pick a 4 digit number a day. 660 days have passed with no numbers being
+  the same. What is this probability?
+  $P(\text{no shared birthdays or lottery numbers}) = 2.191 * 10^{-10}$\\\\
+  \underline{Example}: $P(\text{all $n$ birthday are represented})$?\\
+  Suppose all birthdays are represented. That probability is $\frac{n!}{n^n}$.\\
+  What about our problem? The probability is then $1 - 
+  P(\bigcup_{i=1}^n A_i)$ where $A_i = \{\text{$i$th birthday is missing}\}$
+  $P(A_1) = \frac{(n-1)^k}{n^k} = P(A_i)$ $\forall i$\\
+  $P(A_1 \bigcap A_2) = \frac{(n-2)^k}{n^k} = P(A_i \bigcap A_j)$ where $i < 
+  j$\\
+  $\vdots$\\
+  We then get $1 - n\left(\frac{n-1}{n}\right)^k + \binom{n}{2}\left(
+  \frac{n-2}{n}\right)^k - \ldots = \sum_{i = 0}^{n-1} \binom{n}{i} (-1)^i
+  (1 - \frac{i}{n})^k$\\
+  As it turns out for the above formula, the probability is $\frac{n!}{n^n}$
+  for $k = n$, but about 0 when $k < n$. This is similar to the sterling 
+  numbers of the second kind.\\\\
+  \underline{Example}: Matching Problems\\
+    $n$ employees, each buys a gift. These are then assigned at random.\\
+    \begin{eqnarray*}
+      P(\text{somebody gets own gift}) &=& P(\bigcup_{i=1}^{n}A_i) \text{ where } A_i = \{\text{$i$th person gets own gift}\}\\
+      P(A_1) & = & \frac{1}{n}\\
+      & = & P(A_i)\\
+      P(A_1 \bigcap A_2) & = & \frac{(n-2)!}{n!} \\
+      & = & \frac{1}{n(n-1)}\\
+      P(\ldots) & = & n * \frac{1}{n} - \binom{n}{2}\frac{1}{n(n-1)} + \ldots \\
+       & = & \text{ (as $n \to \infty$) } 1 - \frac{1}{e}
+    \end{eqnarray*}

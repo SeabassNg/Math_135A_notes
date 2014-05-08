@@ -1,0 +1,73 @@
+\section*{1/28}
+  \underline{Example}: We have a fair coin and an unfair coin which always 
+    tosses head. Choose one at random, toss it twice. It comes out heads.\\
+    $P(\text{the coin is fair})$?\\
+    Let $F = \{\text{fair}\}$, $U = \{\text{unfair}\}$, and $E = \{
+    \text{both tosses H\\}$.\\
+    Using the First Bayes' formula, you can compute $E$ a-priori.\\
+    $P(F) = P(U) = \frac{1}{2}$. You have equal probability of picking
+    fair and unfair coin a-priori.\\
+    $P(E|F) = \frac{1}{4}$. Given you picked fair coin, probability of both 
+    tosses heads\\
+    $P(E|U) = 1$. Given you picked unfair coin, probability of both tosses
+    tails.\\
+    Our probability is $\frac{\frac{1}{2}\frac{1}{4}}{\frac{1}{2}\times
+    \frac{1}{4} + \frac{1}{2} \times 1} = \frac{1}{5}$.\\\\
+  \underline{Example}: OJ Simpson\\
+    A Dershowitz: not probable because $P(\text{an wife abuser kills wife}) =
+    .001$\\
+    JF Merz and JP Caulkins cancels his logic because Dershowiz did not take 
+    into account the fact that someone actually murdered someone.\\
+    Let $S = \{\text{murdered women}\}$ with size 4936 (in 1992), out of
+    which 1430 were killed by partners.\\
+    Let $A = \{\text{partner abused}\}$\\
+    Let $M = \{\text{partner murdered}\}$\\
+    $P(M) = .29$\\
+    $P(M^c) = .71$\\
+    You're interested in $P(M|A)$.\\
+    $P(A | M) = .5$\\
+    $P(A | M^c) = .05$\\
+    $P(M|A) = \frac{P(M)P(A |M)}{P(M)P(A|M)+ P(M^c)P(A| M^c)} \approx 80\%$\\\\
+  \subsection*{Independence}
+    Events, $E$ and $F$ are independent if
+    \begin{itemize}
+      \item $P(E|F) = P(E)$
+      \item $P(E \bigcup F) = P(E)P(F)$
+    \end{itemize}
+    \underline{Note}: If $E$ and $F$ are independent, so are $E$ and $F^c$. 
+      Then,
+      \begin{itemize}
+        \item $P(E \bigcup F) = P(E)P(F^c)$
+        \item Then, $P(E) - P(E \bigcap F) = P(E) - P(E)P(F)$
+      \end{itemize}
+    \underline{Note}: Independence is often an assumption rather than something
+    we find.\\\\
+    \underline{Example}: Pull a random card from a full deck.\\
+    Let $E = \{ \text{red} \}$\\
+    Let $F = \{ \text{ace} \}$\\
+    $P(E) = \frac{1}{2}$, $P(E) = \frac{1}{13}$, and $P(E \bigcap F) = 
+    \frac{2}{52}$, so they're independent.\\\\
+    Pull two cards out of the deck sequentially.\\
+    $E = \{\text{first card is ace}\}$\\
+    $F = \{\text{2nd card is ace}\}$\\
+    $P(E) = P(F) = \frac{1}{13}$\\
+    $P(F | E) = \frac{3}{51}$, so not independent.\\\\
+    \underline{Example}: Toss 2 fair coins\\
+    $E = \{ \text{ head on 1st try}\}$\\
+    $F = \{ \text{ head on 2nd try}\}$\\
+    This is independent.\\\\
+    Independence of $E_1, E_2, \ldots, E_n$\\
+    $P(E_{i_1} \bigcap \ldots \bigcap E_{i_k}) = P(E_{i_1})P(E_{i_2})\ldots 
+    P(E_{i_k})$ where $1 \le i_1 \le i_2 \le \ldots \le i_k \le n$.\\\\
+    \underline{Example}:
+      Roll a four sided fair die.\\
+      $A = \{ 1, 2\}$, $B = \{2, 3\}$, $C = \{1, 4\}$\\
+      $P(A) = P(B) = P(C) = \frac{1}{2}$\\
+      $P(A \bigcap B) = P(A \bigcap C) = P(B \bigcap C)$.\\
+      These events are pairwise independent = $\frac{1}{4}$\\
+      Are all 3 independent?\\
+      $P(A \bigcap B \bigcap C) = \frac{1}{4} \not= \frac{1}{8}$\\
+      $A \bigcap B \subset C$\\
+      $A$ and $B$ cannot be independent if they are disjoint. If one happens,
+      the other cannot happen. This is not independent because that would
+      mean that it can still happen with the same probability.

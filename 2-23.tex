@@ -1,0 +1,96 @@
+\section*{2/23}
+  \underline{Example}: An urn has 2 red, 5 white, and 3 green balls.\\
+  Select 3 at random and let $X$ be the number of red balls and $Y$ be the
+  number of white balls.\\
+  \begin{enumerate}
+    \item joint pmf of $(X,Y)$
+    \item marginal pmfs
+    \item $P(X \ge Y)$
+    \item $P(X = 2 | X \ge Y)$
+  \end{enumerate}
+  Joint pmf is $P(X = x, Y = y)$ for all possible $x$ and $y$.\\
+  In our case, $X$ can be $0, 1, 2$ and $Y$ can be $0, 1, 2, 3$\\
+  \begin{tabular}{c|c|c|c|c}
+    $Y/ X$ & 0 & 1 & 2 & Y\\
+    \hline
+    0 & 1/120 & $2 \cdot 3/120$ & 3/120 & 10/120\\
+    \hline
+    1 & $5\cdot3/120$ & $2 \cdot5 \cdot3/120$ & 5/120 & 50/120\\
+    \hline
+    2 & $10\cdot3/120$ & $10\cdot2/120$ & 0 & 50/120\\
+    \hline
+    3 & 10/120 & 0 & 0 & 10/120\\
+    \hline
+    X & 56/120 & 56/120 & 8/120 & 1\\
+  \end{tabular}\\\\
+  Part c) 
+  $$
+    P(X \ge Y) = \frac{1+6+3+30+5}{120} = \frac{3}{8}
+  $$\\
+  Part d) 
+  $$
+    \frac{P(X = 2, X \ge Y)}{P(X \ge Y)} = \frac{\frac{8}{120}}{\frac{3}{8}} = \frac{8}{45}
+  $$
+  \subsection*{Independence}
+    Two random variables, are {\it independent} if
+    $$
+      P(X \in A, Y \in B) = P(X \in A)P(Y \in B)
+    $$
+    for all sets $A$ and $B$ of real numbers. \\
+    In discrete case, this is eqiulvane to
+    $$
+      P(X=x, Y=y) = P(X=x)P(Y=y)
+    $$
+    (Joint pmf is the product of marginals)\\\\
+    \underline{Example}: In the previous problem, is $X$ and $Y$ independent?\\
+    No. Those 0s are dead giveaways. The marginal probabilities of $X = 2$ and
+    $Y = 2$ are not 0, so if $X=$ and $Y$ are independent, then
+    $P(X = 2, Y = 2)$ is not 0.\\\\
+    \underline{Example}: Most often, independence is an assumption!\\
+      Roll a die twice. Let $X$ be the number from the 1st roll and $Y$ be
+      the second roll. You cannot really explain if something is independent.
+      It's always an assumption just like this one.
+  \subsection*{Continuous Case}
+    Let $(X,Y)$ be jointly continuous random variables if there exists $f(x,y)
+      \ge 0$, so that 
+      $$
+        P((X,Y) \in C) = \int\int_C f(x,y)\,dxdy
+      $$
+      where $C$ is some subset of $\mathbb{R}^2$\\\\
+    \underline{Example}: Let $(X,Y)$ is a random point on $S$ where $S$ is
+      a region in $\mathbb{R}^2$.\\
+      Then, 
+      $$
+        f(x,y) = \begin{cases} \frac{1}{area(S)} & \text{if } (x,y) \in S\\
+        0 & \text{otherwise} \end{cases}
+      $$
+      The simplest example is a square of length of 1
+      $$
+        f(x,y) = \begin{cases} 1 & \text{if } 0 \le x \le x \text{ and } 0 \le
+        y \le 1\\ 0 & \text{otherwise}\end{cases}
+      $$\\\\
+    \underline{Example}: Let
+    $$
+      f(x,y) = \begin{cases} cx^2y & \text{if } x^2 \le y \le 1\\ 0 & 
+      \text{otherwise}\end{cases}
+    $$
+    \begin{enumerate}
+      \item What is $c$?
+      \item $P(X \ge Y)$
+      \item $P(X = Y)$
+      \item $P(X = 2Y)$
+    \end{enumerate}
+
+    Part a)
+    \begin{eqnarray*}
+      \int_{-1}^1 dx \int_{x^2}^1 cx^2y\,dy & = & 1\\
+      c \frac{4}{21} & = & 1\\
+      c & = & \frac{21}{4}
+    \end{eqnarray*}
+    Part b) Let $S$ be the area between $x = y$ and $x^2 = y$ for $x \in (0,1)$.
+    \begin{eqnarray*}
+      P(X \ge Y) & = & P((X,Y) \in S)\\
+      & = & \int_0^1 (\int_{x^2}^X \frac{21}{4}x^2y\,dy)\,dx\\
+      & = & \frac{3}{20}
+    \end{eqnarray*}
+    Part c and d) 0 because it's a line.

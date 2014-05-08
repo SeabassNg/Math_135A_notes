@@ -1,0 +1,70 @@
+\section*{1/7}
+  \underline{Example}: Roll two dice. What's the most likely sum?
+  Outcomes: $(i, j)$, $1 \le i \le 6$ and $1 \le j \le 6$
+  \begin{tabular}{c | c}
+    sum & Frequency\\
+    \hline
+    2 & 1\\
+    3 & 2 \\
+    4 & 3 \\
+    5 & 4 \\
+    6 & 5 \\
+    7 & 6 \\
+    8 & 5 \\
+    9 & 4 \\
+    10 & 3 \\
+    11 & 2 \\
+    12 & 1 \\
+  \end{tabular}\\
+  Our answer is 7. \\
+  $P(sum = 7) = \frac{6}{36} = \frac{1}{6}$.\\
+  \underline{Example}: 4 kids in a family. Probability of two sons and two 
+  daughters.\\
+  We have 16 outcomes. We can list them, but... there's got to be a better way.\\
+  \begin{tabular}{|c | c | c | c|}
+  \hline
+  BBBB & BBBG & BBGB & BBGG\\
+  \hline
+  BGBB & BGBG & BGGB & BGGG\\
+  \hline
+  GBBB & GBBG & GBGB & GBGG\\
+  \hline
+  GGBB & GGBG & GGGB & GGGG\\
+  \hline
+  \end{tabular}\\
+  6 of them are two boys and two girls.\\
+  $P(2-2 \text{ split}) = \frac{6}{16} = \frac{3}{8}$\\
+  $P(1:3 \text{ split or } 3:1 \text{ split}) = \frac{8}{16} = \frac{1}{2}$\\
+  $P(4:0 \text{ split or } 0:4 \text{ split}) = \frac{2}{16} = \frac{1}{8}$\\
+  \subsection*{How to count?}
+    Listing them all is very inefficient especially as the sample gets bigger.
+    There's a better way.
+    \begin{center}
+    \fbox{
+    \begin{minipage}{6in}
+    \underline{Basic principle}: If an experiment consists 
+    of 2 parts, first part has $m$ outcomes, and the second part has $n$ 
+    outcomes regardless of 
+    the outcome in the first part, then the experiment as a whole has $mn$ 
+    outcomes.
+    \end{minipage}
+    }
+    \end{center}
+    \underline{Example}: roll a dice 4 times.\\
+    $P(\text{get different numbers})$?\\
+    Number of outcomes: $6^4$ tuples\\
+    Number of good outcomes: $6*5*4*3$, 6 options for the first roll, 5 options
+    for the second roll since it must be not be the number in the first roll.
+    4 options for the third roll since it must not be the first two rolls. 
+    etc...\\
+    \underline{Example}: Last time about the dice rolling game,
+    Game 1: 4 rolls and get at least one 6.\\
+    Number of good events = $6^4 - 5^4$ (Total - bad)\\
+    $P(mn) = 1 - (\frac{5}{6})^4 \approx .5177$\\
+    Game 2: 24 rolls of two die and get at least one pair of 6 rolled.\\
+    Number of outcomes = $36^24$\\
+    Number of good outcomes = $36^24 - 35^24$\\
+    $P(\text{win}) = 1 - \left(\frac{35}{36}\right)^{21} \approx .4914$\\
+    de Mere overcounted. $4*6^3$ means that I pick a 6 in one spot and 
+    any of the 6 in the next one.\\
+    Convergence can be slow sometimes.

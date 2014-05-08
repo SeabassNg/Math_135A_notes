@@ -1,0 +1,40 @@
+\section*{2/17 (Discussion)}
+  \subsection*{Quiz answer}
+    \subsubsection*{Part 1}
+    The rate of suicide is 1 in $10^5$ per month.\\
+    A city has 400,000 residents.\\
+    $\lambda = np = 4$\\
+    $P(X = i) = e^{-\lambda} \frac{\lambda^i}{i!}$\\
+    \begin{eqnarray*}
+    P(\text{ 8 or more suicides / month }) & = & 1 - \sum_{i = 0}^7 P(X = i)\\
+      & = & 1 - \sum_{i = 0}^7 e^{-\lambda}\frac{\lambda^i}{i!}
+    \end{eqnarray*}
+    \subsubsection*{Part 2}
+      Probability of at least 2 month in year will have 8 or more suicide.\\
+      Get $p$ from part (a).\\
+      This is $Binomial(12,p)$\\
+      \begin{eqnarray*}
+        P(X \ge 2) & = & 1 - P(X = 0) - P(X = 1)\\
+        & = & 1 - (1 - p)^{12} - 12p(1-p)^{11}
+      \end{eqnarray*}
+
+  \subsection*{Continuous Random Variable}
+    $X: S \to \mathbb{R}$\\
+    $P(X \in B) = \int_B f(x)\,dx$\\
+    This allows you to forget about sample space.
+
+  \subsection*{ Homework 5.5 }
+    You have a gas station. Its weekly volume of sales in thousands of gallons
+    is a random variable given with pdf:\\
+    $f(x) = \begin{cases} 5(1-x)^4 & 0 < x < 1\\ 0 & \text{otherwise} 
+    \end{cases}$\\
+    What is the volume of the tank such that the probability of running out
+    is 0.01?\\
+    $P(X \ge v) = .01$\\
+    In this case, $B = [v, 1]$. Question is what is $v$?\\
+    \begin{eqnarray*}
+      P(X \ge v) & = & \int_{v}^{1} f(x)\,dx\\
+        & = & \int_v^1 5(1-x)^4\,dx\\
+        & = & -(1-x)^5 |_v^1\\
+      v & = & 1 - \left(\frac{1}{100}\right)^{\frac{1}{5}}
+    \end{eqnarray*}

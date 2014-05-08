@@ -1,0 +1,100 @@
+\section*{3/9}
+      \underline{Example}: Assume that an urn contains 10 black, 7 red, and 
+      15 white balls. Take 5 balls out.
+      \begin{enumerate}
+        \item with replacement
+        \item without replacement
+      \end{enumerate}
+      and $W$ is the number of white balls pulled out. Compute $EW$.\\\\
+      $$
+        EW = 5 \cdot \frac{5}{22}
+      $$
+      Let $Y$ be the number of different colors.\\
+      Let $I_b$ be the event where black is represented.\\
+      Let $I_r$ be the event where red is represented.\\
+      Let $I_w$ be the event where white is represented.\\
+      We know that $Y = I_b + I_r + I_w$.\\
+      $$
+        EY = 1 - \frac{\binom{12}{5}}{\binom{22}{5}} + 1 - 
+        \frac{\binom{15}{5}}{\binom{22}{5}} + 1 - \frac{\binom{17}{5}}
+        {\binom{22}{5}}
+      $$
+  \subsection*{More Properties of expectation}
+    If $X$ and $Y$ are independent, 
+    $$
+      E[g(X)h(Y)] = Eg(X) \cdot E[h(Y)]
+    $$
+    \begin{proof}
+      \begin{eqnarray*}
+        E[g(X)h(Y)] & = &
+        \int\int g(x)h(y)f(x,y)\,dx\,dy\\
+        & = & \int\int g(x)h(y)f_X(x)g_Y(y)\,dxdy\\
+        & = & \int g(x)f_X(x)\,dx \int h(y)f_Y(y)\,dy\\
+        & = & Eg(X) \cdot Eh(Y)
+      \end{eqnarray*}
+    \end{proof}
+  \noindent
+  \underline{Example}: The right triangle from last time.\\
+  $(X,Y)$ is a random point on the right triangle of sides of length 1.\\
+  We computed that $EXY = \frac{1}{12}$ and $EX = EY = \frac{1}{3}$.\\
+  Therefore, this problem is not independent $\frac{1}{3} \cdot \frac{1}{3} 
+  \not= \frac{1}{12}$.\\\\
+  Now, let's look at another problem. Let's say that $(X,Y)$ is a random point
+  on the square of length 1.\\
+  This problem in fact has $X$ and $Y$ independent because $EXY = EX \cdot 
+  EY = \frac{1}{4}$.\\\\
+  \underline{Example}: Roll a die and then toss as many coins as shown up
+    on the die.\\
+    $E(\text{number of heads})$?\\
+    Assume that $(X,Y)$ is discrete. Say we know how to compute $E(Y|
+    X = x)$. Now, I claim that 
+    $$
+      EY = \sum_x E(Y | X = x) \cdot P(X = x)
+    $$
+    Now, 
+    \begin{eqnarray*}
+      \sum_y yP(Y = y | X = x) & = & \sum_y y\frac{P(X = x | Y = y)}{P(X = x)}\\
+      \sum_x E(Y|X = x) P(X = x) & = & \sum_x \sum_y y\frac{P(X = x, y = y)}
+      {P(X = x)} P(X=x)\\
+      & = & \sum_x \sum_y yP(X = x, y = y)\\
+    \end{eqnarray*}
+    In the continuous case,
+    $$
+      EY = \int E(Y | X = x) f_X(x) \,dx 
+    $$
+    \begin{eqnarray*}
+      P(Y | X = x) & = & x \frac{1}{2}\\
+    \end{eqnarray*}
+    Let $X$ be the number on the die when $x = 1, 2, \ldots, 6$ and $Y$
+    be the number of heads.
+    Therefore, 
+    \begin{eqnarray*}
+      E(\text{number of heads}) & = & E[Y]\\
+      & = & \sum_{x = 1}^6 x \frac{1}{2} \cdot \frac{1}{6}\\
+      & = & \frac{7 \cdot 6}{2} \frac{1}{12}\\
+      & = & \frac{7}{4}
+    \end{eqnarray*}
+    \underline{Example}: A person dies and presented with 3 doors. There's
+      one that leads to heaven, one that leads to 1 day in purgatory, and one
+      that leads to 2 days in purgatory. After staying in purgatory, you go
+      back to the door and pick again.  Choose one at random each time. 
+      The doors are reshuffled each time you come back.\\
+      What is your expected stay in purgatory?\\
+      Let $N$ be the number of days in purgatory.\\
+      Conditional expectation of $N$ given you picked door $i$ where $i = 
+      1,2,3$.\\
+      $$
+        E(N | \text{door}_1) = 0
+      $$ 
+      $$
+        E(N | \text{door}_2) = 1 + EN
+      $$
+      $$
+        E(N | \text{door}_i) = 2 + EN
+      $$
+      Therefore,
+      \begin{eqnarray*}
+        EN & = & \frac{1}{3}(1 + EN) + \frac{1}{3}(2 + EN)\\
+        \frac{1}{3} EN & = & 1\\
+        EN & = & 3
+      \end{eqnarray*}
