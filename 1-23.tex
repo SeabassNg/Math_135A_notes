@@ -1,0 +1,57 @@
+\section*{1/23}
+  In general, for events, $E$ and $F$, $P(F) > 0$, the conditional probability
+  of $E$ given $F$ is $P(E|F) = \frac{P(E \bigcap F)}{P(F)}$\\
+  Conditional Probability are somtimes given especially in sequential random
+  experiments.\\\\
+  Then, you can use $P(A_1 \bigcap A_2) = P(A_1)P(A_2 | A_1)$ and
+  $P(A_1 \bigcap A_2 \bigcap A_3) = P(A_1) P(A_2 | A_1) P(A_3 | A_1 \bigcap 
+  A_2)$ etc...\\\\
+  \underline{Example}: An urn contains 10 black and 10 white balls. Draw
+  3 without replacement. $P(\text{ all 3 are white})$?\\
+  \begin{enumerate}
+    \item Sample size: $\binom{20}{3}$ 
+    \item pick 3 balls out of 10 whites: $\binom{10}{3}$
+  \end{enumerate}
+  Our probability is then $\frac{\binom{10}{3}}{\binom{20}{3}}$\\\\
+  Let's try it another way.\\
+  If you do the drawing sequentially, $P(\text{ 1st is white, 2nd is
+  white, and 3rd is white})$\\
+  \begin{enumerate}
+    \item 1st ball is white: $\frac{1}{2}$
+    \item 2nd ball is white after the first one picked is white: $\frac{9}{19}$
+    \item 3rd ball is white after the first two picked are white:
+      $\frac{8}{18}$
+  \end{enumerate}
+  Our probability is also $\frac{1}{2} \times \frac{9}{19} \times 
+    \frac{8}{18}$. Turns out to be the same.\\\\
+  Let's try the example with replacement: $\left(\frac{1}{2}\right)^3$\\\\
+  \underline{Example}: Flip a fair coin: If you get a heads, roll 1 dice.
+  If you get a tails, roll 2 die.\\
+  $P(\text{ get a T and roll one 6}) = P(\text{get T}) P(\text{exactly one
+  6 $|$ get T})$?\\
+  \begin{enumerate}
+    \item Get tails: $\frac{1}{2}$
+    \item Exactly one 6 given that I get T $\frac{2 \times 5}{36}$
+  \end{enumerate}
+  Our probability is then $\frac{1}{2} \times \frac{2 \times 5}{36}$\\\\
+  \begin{theorem}{Bayes' formula}
+    Assume that $F_1, \ldots, F_n$ are distinct and $F_1 \bigcup \ldots \bigcup
+    F_n =$\\
+    $P(\text{one of them always happens})$. Then, for any event, $E$,
+    \begin{eqnarray*}
+    P(E) & = & P(F_1)P(E|F_1) + P(F_2)P(E|F_2) + \ldots + P(F_n)P(E | F_n)\\
+    & = & P(E \bigcap F_1) + \ldots + P(E \bigcap F_n)\\
+    & = & P((E \bigcap F_1) \bigcup \ldots \bigcup (E \bigcap F_n)\\
+    & = & P(E \bigcap (F_1 \bigcup \ldots \bigcup F_n))
+    \end{eqnarray*}
+  \end{theorem}
+  \underline{Example}: Roll a die, pull as many cards from the deck as the 
+  die shows.\\
+  $F_i = \{ \text{number on the die = $i$} \}$ where $i = 1, \ldots, 6$, which
+  is $\frac{1}{6}$.
+  \begin{enumerate}
+    \item 1 card: $\frac{1}{13}$
+    \item 2 cards: $\frac{\binom{48}{2}}{\binom{52}{2}}$
+    \item etc...
+  \end{enumerate}
+  $P(\text{get at least one ace}) = \frac{1}{6}  \frac{1}{13} + \ldots$\\
